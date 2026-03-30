@@ -14,8 +14,19 @@ export function Hero() {
     <section id="home" style={{
       minHeight: "100vh", position: "relative", overflow: "hidden",
       display: "flex", alignItems: "center", width: "100%",
-      background: "linear-gradient(135deg, #0A1F44 0%, #0A3B6B 50%, #1565C0 100%)",
     }}>
+      {/* Background image with overlay */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "url('/src/assets/hero.webp')",
+        backgroundSize: "cover", backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }} />
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "linear-gradient(135deg, rgba(10,31,68,0.75) 0%, rgba(10,59,107,0.75) 50%, rgba(21,101,192,0.7) 100%)",
+      }} />
+      
       {/* Decorative blobs */}
       <div style={{
         position: "absolute", top: "10%", right: "-5%", width: 500, height: 500,
@@ -30,11 +41,12 @@ export function Hero() {
         position: "absolute", inset: 0, pointerEvents: "none",
         backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
         backgroundSize: "60px 60px",
+        zIndex: 1,
       }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 80px",
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center",
-        width: "100%",
+        width: "100%", position: "relative", zIndex: 2,
       }}>
         {/* Left */}
         <div>
@@ -56,6 +68,7 @@ export function Hero() {
             fontSize: "clamp(38px, 5.5vw, 64px)",
             fontWeight: 800, lineHeight: 1.12, color: "#fff",
             marginBottom: 24, animation: "fadeUp 0.9s ease 0.1s both",
+            textShadow: "0 2px 20px rgba(0,0,0,0.3)",
           }}>
             Study Abroad<br />
             <span style={{
@@ -68,15 +81,16 @@ export function Hero() {
 
           <p style={{
             fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.7,
-            color: "rgba(255,255,255,0.72)", marginBottom: 40, maxWidth: 440,
+            color: "rgba(255,255,255,0.95)", marginBottom: 40, maxWidth: 440,
             animation: "fadeUp 1s ease 0.2s both",
+            textShadow: "0 1px 10px rgba(0,0,0,0.3)",
           }}>
             From choosing the right university to landing your visa — Grace International
             has guided 50,000+ students across Australia, UK, Canada, USA & New Zealand.
           </p>
 
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap",
-            animation: "fadeUp 1s ease 0.3s both" }}>
+            animation: "fadeUp 1s ease 0.3s both", alignItems: "center" }}>
             <Link to="/contact" style={{
               background: "linear-gradient(135deg, #1565C0, #42A5F5)",
               color: "#fff", border: "none", cursor: "pointer",
@@ -96,7 +110,7 @@ export function Hero() {
               padding: "14px 32px", borderRadius: 12,
               fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
               backdropFilter: "blur(8px)", transition: "all 0.25s", textDecoration: "none",
-              display: "block",
+              display: "flex", alignItems: "center",
             }}
               onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.18)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}>
