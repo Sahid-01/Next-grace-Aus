@@ -6,6 +6,7 @@ import { Destinations } from "../components/Destinations";
 import { Process } from "../components/Process";
 import { Blog } from "../components/Blog";
 import { Contact } from "../components/Contact";
+import { BranchMap } from "../components/BranchMap";
 export default function HomePage() {
   return (
     <>
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Process />
       <Testimonials />
       <Blog />
+      <BranchMap />
       <CTA />
       <Contact />
     </>
