@@ -1,27 +1,32 @@
+import pawanImg from "../assets/Pawan.webp";
+import violaImg from "../assets/Viola.webp";
+import simritaImg from "../assets/Smrita.webp";
+import siratImg from "../assets/Sirat.webp";
+
 const TEAM_MEMBERS = [
   {
-    name: "John Smith",
-    role: "CEO & Founder",
-    image: "https://via.placeholder.com/300x300",
-    bio: "15+ years of experience in international education consulting"
+    name: "Pawan Thapaliya",
+    role: "Principal Migration Agent",
+    image: pawanImg,
+    bio: "Pawan, our principal migration agent, leads Grace International's Melbourne team. Registered since 2014, he excels in time management, team leadership, and delivering exceptional migration services with expertise and dedication."
   },
   {
-    name: "Sarah Johnson",
-    role: "Head of Admissions",
-    image: "https://via.placeholder.com/300x300",
-    bio: "Expert in university placements across UK, USA, and Canada"
+    name: "Viola Rong",
+    role: "Certified Migration Agent",
+    image: violaImg,
+    bio: "Certified migration agent since 2018, Viola has been working in visa and migration for almost seven years. She has an eye for detail and has excellent communication and interpersonal skills."
   },
   {
-    name: "Michael Chen",
-    role: "Visa Consultant",
-    image: "https://via.placeholder.com/300x300",
-    bio: "Specialized in student visa processing with 98% success rate"
+    name: "Simrita Ranjitkar",
+    role: "Registered Migration Agent",
+    image: simritaImg,
+    bio: "Simrita, a highly focused and reliable registered migration agent since 2017, works at Grace International's Sydney office. A team player with exceptional communication, she embraces challenges to support clients effectively."
   },
   {
-    name: "Emily Davis",
-    role: "Career Counselor",
-    image: "https://via.placeholder.com/300x300",
-    bio: "Helping students choose the right career path for 10+ years"
+    name: "Sirat Teji",
+    role: "Registered Migration Agent",
+    image: siratImg,
+    bio: "Sirat Teji, a skilled Registered Migration Agent at Grace International Sydney, specializes in Australian Migration Law, offering tailored solutions for General Skilled Migration, Partner, Student, and Temporary Graduate visas."
   },
 ];
 
