@@ -59,7 +59,7 @@ export const BRANCHES = [
     phone: "+61 (02) 6162 8800",
     email: "canberra@graceintlgroup.com.au",
     lat: -35.2809,
-    lng: 149.1300,
+    lng: 149.13,
     primary: false,
   },
   {

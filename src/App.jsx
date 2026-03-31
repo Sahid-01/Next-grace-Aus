@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import DestinationsPage from "./pages/DestinationsPage";
 import ProcessPage from "./pages/ProcessPage";
-import TestimonialsPage from "./pages/TestimonialsPage";
+import UniversitiesPage from "./pages/UniversitiesPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -38,7 +38,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/process" element={<ProcessPage />} />
-            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/universities" element={<UniversitiesPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>

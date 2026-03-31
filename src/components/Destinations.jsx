@@ -28,9 +28,7 @@ export function Destinations() {
                 display: "block",
                 marginBottom: 12,
               }}
-            >
-          
-            </span>
+            ></span>
             <h2
               style={{
                 fontFamily: "'Poppins', sans-serif",

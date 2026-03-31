@@ -1,7 +1,7 @@
-import { Testimonials } from "../components/Testimonials";
+import { Universities } from "../components/Universities";
 import { CTA } from "../components/CTA";
 
-export default function TestimonialsPage() {
+export default function UniversitiesPage() {
   return (
     <>
       <div
@@ -10,7 +10,7 @@ export default function TestimonialsPage() {
           background: "linear-gradient(135deg, #0A1F44 0%, #1565C0 100%)",
         }}
       />
-      <Testimonials />
+      <Universities />
       <CTA />
     </>
   );

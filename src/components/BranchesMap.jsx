@@ -22,14 +22,14 @@ import { BRANCHES } from "../data/branches";
 
 // ── Australia bounding box — map opens showing the whole country ──────────
 const AUS_CENTER = [-25.5, 133.5];
-const AUS_ZOOM   = 4;
+const AUS_ZOOM = 4;
 
 // ── Custom SVG marker factory ─────────────────────────────────────────────
 function createMarkerIcon(isPrimary = false, isActive = false) {
-  const bg    = isActive  ? "#0A1F44" : isPrimary ? "#1565C0" : "#fff";
-  const ring  = isActive  ? "#64B5F6" : isPrimary ? "#42A5F5" : "#1565C0";
-  const dot   = isActive  ? "#64B5F6" : isPrimary ? "#fff"    : "#1565C0";
-  const size  = isPrimary ? 38 : 32;
+  const bg = isActive ? "#0A1F44" : isPrimary ? "#1565C0" : "#fff";
+  const ring = isActive ? "#64B5F6" : isPrimary ? "#42A5F5" : "#1565C0";
+  const dot = isActive ? "#64B5F6" : isPrimary ? "#fff" : "#1565C0";
+  const size = isPrimary ? 38 : 32;
 
   return L.divIcon({
     className: "",
@@ -50,9 +50,9 @@ function createMarkerIcon(isPrimary = false, isActive = false) {
           transform: rotate(45deg);
         "></div>
       </div>`,
-    iconSize:   [size, size],
+    iconSize: [size, size],
     iconAnchor: [size / 2, size],
-    popupAnchor:[0, -size - 4],
+    popupAnchor: [0, -size - 4],
   });
 }
 
@@ -153,7 +153,9 @@ export default function BranchesMap() {
                     key={branch.id}
                     onClick={() => handleCardClick(branch)}
                     style={{
-                      background: isActive ? "linear-gradient(135deg, #0A1F44, #1565C0)" : "#fff",
+                      background: isActive
+                        ? "linear-gradient(135deg, #0A1F44, #1565C0)"
+                        : "#fff",
                       borderRadius: 14,
                       padding: "18px 20px",
                       border: `1.5px solid ${isActive ? "transparent" : "#EBF0FB"}`,
@@ -167,14 +169,16 @@ export default function BranchesMap() {
                     onMouseEnter={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.borderColor = "#BBDEFB";
-                        e.currentTarget.style.boxShadow = "0 4px 20px rgba(21,101,192,0.12)";
+                        e.currentTarget.style.boxShadow =
+                          "0 4px 20px rgba(21,101,192,0.12)";
                         e.currentTarget.style.transform = "translateX(4px)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.borderColor = "#EBF0FB";
-                        e.currentTarget.style.boxShadow = "0 2px 12px rgba(10,31,68,0.05)";
+                        e.currentTarget.style.boxShadow =
+                          "0 2px 12px rgba(10,31,68,0.05)";
                         e.currentTarget.style.transform = "translateX(0)";
                       }
                     }}
@@ -196,7 +200,9 @@ export default function BranchesMap() {
                           borderRadius: "50%",
                           background: isActive ? "#64B5F6" : "#1565C0",
                           flexShrink: 0,
-                          boxShadow: isActive ? "0 0 0 3px rgba(100,181,246,0.3)" : "none",
+                          boxShadow: isActive
+                            ? "0 0 0 3px rgba(100,181,246,0.3)"
+                            : "none",
                         }}
                       />
                       <span
@@ -213,7 +219,9 @@ export default function BranchesMap() {
                         <span
                           style={{
                             marginLeft: "auto",
-                            background: isActive ? "rgba(255,255,255,0.15)" : "#E3F2FD",
+                            background: isActive
+                              ? "rgba(255,255,255,0.15)"
+                              : "#E3F2FD",
                             color: isActive ? "#90CAF9" : "#1565C0",
                             fontFamily: "'Poppins', sans-serif",
                             fontWeight: 700,
@@ -294,8 +302,13 @@ export default function BranchesMap() {
                   <Marker
                     key={branch.id}
                     position={[branch.lat, branch.lng]}
-                    icon={createMarkerIcon(branch.primary, branch.id === activeId)}
-                    ref={(ref) => { if (ref) markerRefs.current[branch.id] = ref; }}
+                    icon={createMarkerIcon(
+                      branch.primary,
+                      branch.id === activeId,
+                    )}
+                    ref={(ref) => {
+                      if (ref) markerRefs.current[branch.id] = ref;
+                    }}
                     eventHandlers={{
                       click: () => setActiveId(branch.id),
                     }}
@@ -356,20 +369,47 @@ export default function BranchesMap() {
                         </div>
 
                         {/* Address */}
-                        <p style={{ fontSize: 12, color: "#64748B", marginBottom: 8, lineHeight: 1.5 }}>
+                        <p
+                          style={{
+                            fontSize: 12,
+                            color: "#64748B",
+                            marginBottom: 8,
+                            lineHeight: 1.5,
+                          }}
+                        >
                           📍 {branch.address}
                         </p>
 
                         {/* Phone */}
-                        <p style={{ fontSize: 12, color: "#475569", marginBottom: 4 }}>
-                          📞 <a href={`tel:${branch.phone}`} style={{ color: "#1565C0", textDecoration: "none" }}>
+                        <p
+                          style={{
+                            fontSize: 12,
+                            color: "#475569",
+                            marginBottom: 4,
+                          }}
+                        >
+                          📞{" "}
+                          <a
+                            href={`tel:${branch.phone}`}
+                            style={{ color: "#1565C0", textDecoration: "none" }}
+                          >
                             {branch.phone}
                           </a>
                         </p>
 
                         {/* Email */}
-                        <p style={{ fontSize: 12, color: "#475569", marginBottom: 14 }}>
-                          ✉️ <a href={`mailto:${branch.email}`} style={{ color: "#1565C0", textDecoration: "none" }}>
+                        <p
+                          style={{
+                            fontSize: 12,
+                            color: "#475569",
+                            marginBottom: 14,
+                          }}
+                        >
+                          ✉️{" "}
+                          <a
+                            href={`mailto:${branch.email}`}
+                            style={{ color: "#1565C0", textDecoration: "none" }}
+                          >
                             {branch.email}
                           </a>
                         </p>
@@ -379,7 +419,8 @@ export default function BranchesMap() {
                           href={`mailto:${branch.email}`}
                           style={{
                             display: "block",
-                            background: "linear-gradient(135deg, #1565C0, #42A5F5)",
+                            background:
+                              "linear-gradient(135deg, #1565C0, #42A5F5)",
                             color: "#fff",
                             textDecoration: "none",
                             padding: "9px 14px",

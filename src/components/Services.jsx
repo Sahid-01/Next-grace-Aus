@@ -57,10 +57,11 @@ export function Services() {
   return (
     <section
       id="services"
-      style={{ 
-        background: "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)", 
-        padding: "100px 24px", 
-        width: "100%" 
+      style={{
+        background:
+          "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)",
+        padding: "100px 24px",
+        width: "100%",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -96,7 +97,13 @@ export function Services() {
         </FadeIn>
 
         {/* Carousel Container */}
-        <div style={{ position: "relative", overflow: "hidden", padding: "0 60px" }}>
+        <div
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            padding: "0 60px",
+          }}
+        >
           {/* Carousel Track */}
           <div
             style={{

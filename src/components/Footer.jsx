@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import { ICONS } from "../components/Icon";
 
 const NAV_LINKS = [
-  { label: "Home",         path: "/" },
+  { label: "Home", path: "/" },
   { label: "Study Abroad", path: "/destinations" },
-  { label: "Services",     path: "/services" },
-  { label: "Process",      path: "/process" },
+  { label: "Services", path: "/services" },
+  { label: "Process", path: "/process" },
   { label: "Testimonials", path: "/testimonials" },
-  { label: "Blog",         path: "/blog" },
-  { label: "Contact",      path: "/contact" },
+  { label: "Blog", path: "/blog" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const SERVICES = [
@@ -23,8 +23,8 @@ const SERVICES = [
 ];
 
 const CONTACT_INFO = [
-  { icon: "phone",  text: "+61 (03) 9662 9020" },
-  { icon: "mail",   text: "melbourne@graceintlgroup.com" },
+  { icon: "phone", text: "+61 (03) 9662 9020" },
+  { icon: "mail", text: "melbourne@graceintlgroup.com" },
   { icon: "mappin", text: "Melbourne, Sydney & 45 branches" },
 ];
 
@@ -139,10 +139,8 @@ export function Footer() {
       <style>{FOOTER_STYLES}</style>
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-
         {/* ── 4-column grid (collapses on smaller screens) ─────────────── */}
         <div className="footer-grid">
-
           {/* Brand column */}
           <div style={{ textAlign: "left" }}>
             {/* Logo */}
@@ -177,7 +175,14 @@ export function Footer() {
             </p>
 
             {/* Social icons */}
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "flex-start" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: 10,
+                flexWrap: "wrap",
+                justifyContent: "flex-start",
+              }}
+            >
               {SOCIAL.map((s) => (
                 <button key={s} className="footer-social-btn" aria-label={s}>
                   <svg
@@ -308,7 +313,6 @@ export function Footer() {
               </div>
             ))}
           </div>
-
         </div>
 
         {/* ── Divider line ─────────────────────────────────────────────── */}
@@ -339,7 +343,6 @@ export function Footer() {
             </span>
           </div>
         </div>
-
       </div>
     </footer>
   );
