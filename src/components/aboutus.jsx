@@ -29,176 +29,47 @@ export function Blog() {
   return (
     <section
       id="blog"
-      style={{ background: "#fff", padding: "100px 24px", width: "100%" }}
+      className="bg-white py-[100px] px-6 w-full"
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginBottom: 56,
-              flexWrap: "wrap",
-              gap: 20,
-            }}
-          >
+          <div className="flex items-end justify-between mb-14 flex-wrap gap-5">
             <div>
-              <span
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 12,
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  color: "#1565C0",
-                  display: "block",
-                  marginBottom: 12,
-                }}
-              >
+              <span className="font-poppins font-bold text-xs tracking-[2px] uppercase text-brand block mb-3">
                 Insights
               </span>
-              <h2
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "clamp(32px, 4vw, 48px)",
-                  fontWeight: 800,
-                  color: "#0A1F44",
-                  margin: 0,
-                }}
-              >
+              <h2 className="font-poppins text-[clamp(32px,4vw,48px)] font-extrabold text-heading m-0">
                 Latest Articles & News
               </h2>
             </div>
-            <button
-              style={{
-                background: "none",
-                border: "1.5px solid #BBDEFB",
-                cursor: "pointer",
-                padding: "10px 24px",
-                borderRadius: 10,
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 600,
-                fontSize: 14,
-                color: "#1565C0",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#E3F2FD";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "none";
-              }}
-            >
+            <button className="bg-none border-[1.5px] border-surface-bluer cursor-pointer py-2.5 px-6 rounded-[10px] font-poppins font-semibold text-sm text-brand transition-all duration-200 hover:bg-surface-blue">
               View All Posts →
             </button>
           </div>
         </FadeIn>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: 24,
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
           {BLOGS.map((b, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div
-                style={{
-                  background: "#fff",
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  boxShadow: "0 2px 20px rgba(10,31,68,0.06)",
-                  border: "1px solid #EBF0FB",
-                  transition: "all 0.3s",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 16px 48px rgba(21,101,192,0.12)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 2px 20px rgba(10,31,68,0.06)";
-                }}
-              >
+              <div className="bg-white rounded-[20px] overflow-hidden shadow-[0_2px_20px_rgba(10,31,68,0.06)] border border-surface-border transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(21,101,192,0.12)]">
                 {/* Color band */}
-                <div
-                  style={{
-                    height: 6,
-                    background: "linear-gradient(90deg, #1565C0, #42A5F5)",
-                  }}
-                />
-                <div style={{ padding: "28px 28px 32px" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      marginBottom: 16,
-                    }}
-                  >
-                    <span
-                      style={{
-                        background: "#E3F2FD",
-                        color: "#1565C0",
-                        fontFamily: "'Poppins', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 11,
-                        padding: "4px 12px",
-                        borderRadius: 100,
-                        letterSpacing: "0.5px",
-                      }}
-                    >
+                <div className="h-1.5 bg-gradient-to-r from-brand to-brand-light" />
+                <div className="pt-7 px-7 pb-8">
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <span className="bg-surface-blue text-brand font-poppins font-bold text-[11px] py-1 px-3 rounded-full tracking-[0.5px]">
                       {b.tag}
                     </span>
-                    <span
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 12,
-                        color: "#94A3B8",
-                      }}
-                    >
+                    <span className="font-poppins text-xs text-muted">
                       {b.date}
                     </span>
                   </div>
-                  <h3
-                    style={{
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 17,
-                      color: "#0A1F44",
-                      marginBottom: 12,
-                      lineHeight: 1.4,
-                    }}
-                  >
+                  <h3 className="font-poppins font-bold text-[17px] text-heading mb-3 leading-[1.4]">
                     {b.title}
                   </h3>
-                  <p
-                    style={{
-                      fontFamily: "'Poppins', sans-serif",
-                      fontSize: 14,
-                      color: "#64748B",
-                      lineHeight: 1.65,
-                      marginBottom: 20,
-                    }}
-                  >
+                  <p className="font-poppins text-sm text-body leading-[1.65] mb-5">
                     {b.excerpt}
                   </p>
-                  <span
-                    style={{
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 13,
-                      color: "#1565C0",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                    }}
-                  >
+                  <span className="font-poppins font-bold text-[13px] text-brand flex items-center gap-1.5">
                     Read More
                     <svg
                       width={14}

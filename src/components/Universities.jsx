@@ -41,262 +41,65 @@ const universities = [
 
 export function Universities() {
   return (
-    <section
-      style={{
-        padding: "80px 24px",
-        background: "linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%)",
-      }}
-    >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <section className="py-20 px-6 bg-gradient-to-b from-[#F8FAFC] to-[#EFF6FF]">
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <div style={{ textAlign: "center", marginBottom: 70 }}>
-            <div
-              style={{
-                display: "inline-block",
-                // background: "linear-gradient(135deg, #1565C0, #0A3B6B)",
-                padding: "8px 20px",
-                borderRadius: 30,
-                marginBottom: 20,
-              }}
-            >
-              <span
-                style={{
-                  color: "#0025faff",
-                  fontSize: 13,
-                  fontWeight: 700,
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
-                }}
-              >
+          <div className="text-center mb-[70px]">
+            <div className="inline-block py-2 px-5 rounded-[30px] mb-5">
+              <span className="text-[#0025faff] text-[13px] font-bold tracking-[1px] uppercase">
                 Our Partners
               </span>
             </div>
-            <h1
-              style={{
-                fontSize: "50px",
-                fontWeight: 800,
-                color: "#0A1F44",
-                marginBottom: 20,
-                fontFamily: "'Poppins', sans-serif",
-              }}
-            >
+            <h1 className="text-[50px] font-extrabold text-heading mb-5 font-poppins">
               Educational Partners
             </h1>
-            <p
-              style={{
-                fontSize: "19px",
-                color: "#64748B",
-                maxWidth: 650,
-                margin: "0 auto",
-                lineHeight: 1.7,
-              }}
-            >
+            <p className="text-[19px] text-body max-w-[650px] mx-auto leading-[1.7]">
               Partner with world-leading universities and unlock your global
               education journey
             </p>
           </div>
         </FadeIn>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: 28,
-            width: "100%",
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-7 w-full">
           {universities.map((uni, idx) => (
             <div
               key={uni.id}
-              style={{
-                background: "#fff",
-                borderRadius: 24,
-                padding: "36px 32px",
-                textAlign: "center",
-                boxShadow: "0 10px 40px rgba(10,25,60,0.08)",
-                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                cursor: "pointer",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "space-between",
-                minHeight: 360,
-                border: "1px solid rgba(226,232,240,0.8)",
-                position: "relative",
-                overflow: "visible",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow =
-                  "0 20px 60px rgba(21,101,192,0.18)";
-                e.currentTarget.style.transform = "translateY(-12px)";
-                e.currentTarget.style.borderColor = "rgba(21,101,192,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow =
-                  "0 10px 40px rgba(10,25,60,0.08)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.borderColor = "rgba(226,232,240,0.8)";
-              }}
+              className="bg-white rounded-3xl py-9 px-8 text-center shadow-[0_10px_40px_rgba(10,25,60,0.08)] transition-all duration-400 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] cursor-pointer flex flex-col items-center justify-between min-h-[360px] border border-[rgba(226,232,240,0.8)] relative overflow-visible hover:shadow-[0_20px_60px_rgba(21,101,192,0.18)] hover:-translate-y-3 hover:border-[rgba(21,101,192,0.2)]"
             >
               {/* Top decorative line */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "60px",
-                  height: "4px",
-                  background: "linear-gradient(90deg, #1565C0, #22C55E)",
-                  borderRadius: "0 0 4px 4px",
-                }}
-              />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60px] h-1 bg-gradient-to-r from-brand to-[#22C55E] rounded-b" />
 
               {/* Logo container */}
-              <div
-                style={{
-                  width: "100%",
-                  height: 100,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: 28,
-                  marginTop: 8,
-                }}
-              >
-                <div
-                  style={{
-                    width: 160,
-                    height: 100,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: "linear-gradient(135deg, #F8FAFC, #EFF6FF)",
-                    borderRadius: 16,
-                    padding: 20,
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.08)";
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #EFF6FF, #DBEAFE)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #F8FAFC, #EFF6FF)";
-                  }}
-                >
+              <div className="w-full h-[100px] flex items-center justify-center mb-7 mt-2">
+                <div className="w-[160px] h-[100px] flex items-center justify-center bg-gradient-to-br from-[#F8FAFC] to-[#EFF6FF] rounded-2xl p-5 transition-all duration-300 ease-in-out hover:scale-[1.08] hover:bg-gradient-to-br hover:from-[#EFF6FF] hover:to-[#DBEAFE]">
                   <img
                     src={uni.logo}
                     alt={uni.name}
-                    style={{
-                      maxWidth: "100%",
-                      maxHeight: "100%",
-                      objectFit: "contain",
-                    }}
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
               </div>
 
               {/* University name */}
-              <div style={{ marginBottom: 32, flex: 1, width: "100%" }}>
-                <h3
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 700,
-                    color: "#0A1F44",
-                    marginBottom: 12,
-                    lineHeight: 1.3,
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
+              <div className="mb-8 flex-1 w-full">
+                <h3 className="text-[22px] font-bold text-heading mb-3 leading-[1.3] font-poppins">
                   {uni.name}
                 </h3>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    background: "#EFF6FF",
-                    padding: "8px 16px",
-                    borderRadius: 24,
-                    border: "1px solid #BFDBFE",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 13,
-                      color: "#1565C0",
-                      fontWeight: 600,
-                      letterSpacing: "0.3px",
-                    }}
-                  >
+                <div className="inline-flex items-center bg-[#EFF6FF] py-2 px-4 rounded-3xl border border-[#BFDBFE]">
+                  <span className="text-[13px] text-brand font-semibold tracking-[0.3px]">
                     {uni.code}
                   </span>
                 </div>
               </div>
 
               {/* Button */}
-              <button
-                style={{
-                  background:
-                    "linear-gradient(135deg, #22C55E 0%, #16A34A 100%)",
-                  color: "#fff",
-                  border: "none",
-                  padding: "16px 36px",
-                  borderRadius: 12,
-                  fontSize: 15,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  width: "100%",
-                  boxShadow: "0 8px 24px rgba(34,197,94,0.25)",
-                  letterSpacing: "0.3px",
-                  fontFamily: "'Poppins', sans-serif",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "linear-gradient(135deg, #16A34A 0%, #15803D 100%)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 12px 32px rgba(34,197,94,0.35)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background =
-                    "linear-gradient(135deg, #22C55E 0%, #16A34A 100%)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 24px rgba(34,197,94,0.25)";
-                }}
-              >
+              <button className="bg-gradient-to-br from-[#22C55E] to-[#16A34A] text-white border-none py-4 px-9 rounded-xl text-[15px] font-bold cursor-pointer transition-all duration-300 ease-in-out w-full shadow-[0_8px_24px_rgba(34,197,94,0.25)] tracking-[0.3px] font-poppins hover:bg-gradient-to-br hover:from-[#16A34A] hover:to-[#15803D] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(34,197,94,0.35)]">
                 Learn More
               </button>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes shimmer {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 }

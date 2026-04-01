@@ -3,134 +3,29 @@ import { FadeIn } from "../components/FadeIn";
 
 export function CTA() {
   return (
-    <section
-      style={{ padding: "80px 24px", background: "#F7F9FC", width: "100%" }}
-    >
+    <section className="py-20 px-6 bg-surface w-full">
       <FadeIn>
-        <div
-          style={{
-            maxWidth: 900,
-            margin: "0 auto",
-            background: "linear-gradient(135deg, #0A1F44 0%, #1565C0 100%)",
-            borderRadius: 28,
-            padding: "72px 48px",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-            boxShadow: "0 24px 80px rgba(10,31,68,0.28)",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: "-20%",
-              right: "-5%",
-              width: 300,
-              height: 300,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.05)",
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-20%",
-              left: "-5%",
-              width: 250,
-              height: 250,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.04)",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ position: "relative" }}>
-            <h2
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(28px, 4vw, 44px)",
-                color: "#fff",
-                marginBottom: 16,
-                lineHeight: 1.2,
-              }}
-            >
+        <div className="max-w-[900px] mx-auto bg-gradient-to-br from-navy to-brand rounded-[28px] py-[72px] px-12 text-center relative overflow-hidden shadow-[0_24px_80px_rgba(10,31,68,0.28)]">
+          <div className="absolute -top-[20%] -right-[5%] w-[300px] h-[300px] rounded-full bg-white/5 pointer-events-none" />
+          <div className="absolute -bottom-[20%] -left-[5%] w-[250px] h-[250px] rounded-full bg-white/[0.04] pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-poppins font-extrabold text-[clamp(28px,4vw,44px)] text-white mb-4 leading-[1.2]">
               Start Your Study Abroad
               <br />
               Journey Today
             </h2>
-            <p
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 17,
-                color: "rgba(255,255,255,0.72)",
-                marginBottom: 40,
-                maxWidth: 500,
-                margin: "0 auto 40px",
-              }}
-            >
+            <p className="font-poppins text-[17px] text-white/[0.72] mb-10 max-w-[500px] mx-auto">
               Book a free consultation with our expert advisors and take the
               first step towards your dream education.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: 14,
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className="flex gap-3.5 justify-center flex-wrap">
               <Link
                 to="/contact"
-                style={{
-                  background: "#fff",
-                  color: "#1565C0",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "14px 36px",
-                  borderRadius: 12,
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 15,
-                  transition: "all 0.25s",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
-                  textDecoration: "none",
-                  display: "block",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 28px rgba(0,0,0,0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 4px 16px rgba(0,0,0,0.15)";
-                }}
+                className="bg-white text-brand border-none cursor-pointer py-3.5 px-9 rounded-xl font-poppins font-bold text-[15px] transition-all duration-250 shadow-[0_4px_16px_rgba(0,0,0,0.15)] no-underline block hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.2)]"
               >
                 Book Free Consultation
               </Link>
-              <button
-                style={{
-                  background: "rgba(255,255,255,0.1)",
-                  color: "#fff",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  cursor: "pointer",
-                  padding: "14px 36px",
-                  borderRadius: 12,
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 600,
-                  fontSize: 15,
-                  transition: "all 0.25s",
-                  backdropFilter: "blur(8px)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.18)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-                }}
-              >
+              <button className="bg-white/10 text-white border border-white/25 cursor-pointer py-3.5 px-9 rounded-xl font-poppins font-semibold text-[15px] transition-all duration-250 backdrop-blur-[8px] hover:bg-white/[0.18]">
                 Call +61 (03) 9662 9020
               </button>
             </div>

@@ -12,93 +12,29 @@ export function Destinations() {
   return (
     <section
       id="destinations"
-      style={{ background: "#fff", padding: "100px 24px", width: "100%" }}
+      className="bg-white py-[100px] px-6 w-full"
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <span
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "#1565C0",
-                display: "block",
-                marginBottom: 12,
-              }}
-            ></span>
-            <h2
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: "clamp(32px, 4vw, 48px)",
-                fontWeight: 800,
-                color: "#0A1F44",
-                margin: 0,
-              }}
-            >
+          <div className="text-center mb-16">
+            <span className="font-poppins font-bold text-xs tracking-[2px] uppercase text-brand block mb-3"></span>
+            <h2 className="font-poppins text-[clamp(32px,4vw,48px)] font-extrabold text-heading m-0">
               Top Study Destinations
             </h2>
           </div>
         </FadeIn>
 
-        <div
-          style={{
-            display: "flex",
-            gap: 20,
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div className="flex gap-5 flex-wrap justify-center">
           {DESTINATIONS.map((d, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div
-                style={{
-                  background: "#fff",
-                  borderRadius: 20,
-                  padding: "36px 32px",
-                  boxShadow: "0 2px 20px rgba(10,31,68,0.06)",
-                  border: "1px solid #EBF0FB",
-                  textAlign: "center",
-                  minWidth: 180,
-                  flex: "1 1 160px",
-                  maxWidth: 200,
-                  transition: "all 0.3s",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateY(-8px) scale(1.02)";
-                  e.currentTarget.style.boxShadow = `0 16px 48px ${d.color}22`;
-                  e.currentTarget.style.borderColor = d.color + "44";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0) scale(1)";
-                  e.currentTarget.style.boxShadow =
-                    "0 2px 20px rgba(10,31,68,0.06)";
-                  e.currentTarget.style.borderColor = "#EBF0FB";
-                }}
-              >
-                <div style={{ fontSize: 44, marginBottom: 14 }}>{d.flag}</div>
-                <div
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 16,
-                    color: "#0A1F44",
-                    marginBottom: 6,
-                  }}
-                >
+              <div className="bg-white rounded-[20px] py-9 px-8 shadow-[0_2px_20px_rgba(10,31,68,0.06)] border border-surface-border text-center min-w-[180px] flex-[1_1_160px] max-w-[200px] transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_16px_48px_rgba(21,101,192,0.12)]">
+                <div className="text-[44px] mb-3.5">{d.flag}</div>
+                <div className="font-poppins font-bold text-base text-heading mb-1.5">
                   {d.name}
                 </div>
                 <div
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 13,
-                    color: d.color,
-                  }}
+                  className="font-poppins font-semibold text-[13px]"
+                  style={{ color: d.color }}
                 >
                   {d.students} students
                 </div>

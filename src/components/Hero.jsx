@@ -12,199 +12,52 @@ export function Hero() {
   return (
     <section
       id="home"
-      style={{
-        minHeight: "100vh",
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center",
-        width: "100%",
-      }}
+      className="min-h-screen relative overflow-hidden flex items-center w-full"
     >
       {/* Background image with overlay */}
       <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "url('/src/assets/hero.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/src/assets/hero.webp')" }}
       />
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(135deg, rgba(10,31,68,0.75) 0%, rgba(10,59,107,0.75) 50%, rgba(21,101,192,0.7) 100%)",
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[rgba(10,31,68,0.75)] via-[rgba(10,59,107,0.75)] to-[rgba(21,101,192,0.7)]" />
 
       {/* Decorative blobs */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.04)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-10%",
-          left: "-8%",
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: "rgba(21,101,192,0.3)",
-          pointerEvents: "none",
-        }}
-      />
+      <div className="absolute top-[10%] -right-[5%] w-[500px] h-[500px] rounded-full bg-white/[0.04] pointer-events-none" />
+      <div className="absolute -bottom-[10%] -left-[8%] w-[400px] h-[400px] rounded-full bg-[rgba(21,101,192,0.3)] pointer-events-none" />
+
       {/* Grid pattern */}
       <div
+        className="absolute inset-0 pointer-events-none z-[1]"
         style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
-          zIndex: 1,
         }}
       />
 
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "120px 24px 80px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 60,
-          alignItems: "center",
-          width: "100%",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
+      <div className="max-w-[1200px] mx-auto px-6 pt-[120px] pb-20 grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center w-full relative z-[2]">
         {/* Left */}
         <div>
-          {/* <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "rgba(255,255,255,0.1)",
-              borderRadius: 100,
-              padding: "6px 16px",
-              marginBottom: 28,
-              border: "1px solid rgba(255,255,255,0.15)",
-              animation: "fadeUp 0.8s ease both",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 11,
-                color: "#90CAF9",
-                fontFamily: "'Poppins'",
-                fontWeight: 600,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-              }}
-            >
-               Trusted by 50,000+ students
-            </span>
-          </div> */}
-
-          <h1
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: "clamp(38px, 5.5vw, 64px)",
-              fontWeight: 800,
-              lineHeight: 1.12,
-              color: "#fff",
-              maxWidth: "100%",
-              marginBottom: 24,
-              animation: "fadeUp 0.9s ease 0.1s both",
-              textShadow: "0 2px 20px rgba(0,0,0,0.3)",
-            }}
-          >
+          <h1 className="font-poppins text-[clamp(38px,5.5vw,64px)] font-extrabold leading-[1.12] text-white max-w-full mb-6 animate-[fadeUp_0.9s_ease_0.1s_both] [text-shadow:0_2px_20px_rgba(0,0,0,0.3)]">
             Study Abroad
             <br />
-            <span
-              style={{
-                background: "linear-gradient(90deg, #64B5F6, #90CAF9)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                maxWidth: "100%",
-              }}
-            >
+            <span className="bg-gradient-to-r from-brand-lighter to-brand-lightest bg-clip-text text-transparent max-w-full">
               with Expert
             </span>
             <br />
             Guidance
           </h1>
 
-          <p
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: 17,
-              lineHeight: 1.7,
-              color: "rgba(255,255,255,0.95)",
-              marginBottom: 40,
-              maxWidth: 440,
-              animation: "fadeUp 1s ease 0.2s both",
-              textShadow: "0 1px 10px rgba(0,0,0,0.3)",
-              maxWidth: "100%",
-              textAlign: "center",
-            }}
-          >
+          <p className="font-poppins text-[17px] leading-[1.7] text-white/95 mb-10 max-w-full animate-[fadeUp_1s_ease_0.2s_both] [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] text-center">
             From choosing the right university to landing your visa Grace
             International has guided 50,000+ students across Australia, UK,
             Canada, USA & New Zealand.
           </p>
 
-          <div
-            style={{
-              display: "flex",
-              gap: 14,
-              flexWrap: "wrap",
-              animation: "fadeUp 1s ease 0.3s both",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="flex gap-3.5 flex-wrap animate-[fadeUp_1s_ease_0.3s_both] items-center justify-center">
             <Link
               to="/contact"
-              style={{
-                background: "linear-gradient(135deg, #1565C0, #42A5F5)",
-                color: "#fff",
-                border: "none",
-                cursor: "pointer",
-                padding: "14px 32px",
-                borderRadius: 12,
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 15,
-                boxShadow: "0 8px 32px rgba(21,101,192,0.5)",
-                transition: "all 0.25s",
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
+              className="bg-gradient-to-br from-brand to-brand-light text-white border-none cursor-pointer py-3.5 px-8 rounded-xl font-poppins font-bold text-[15px] shadow-[0_8px_32px_rgba(21,101,192,0.5)] transition-all duration-250 flex items-center gap-2 no-underline hover:-translate-y-0.5"
             >
               Get Started
               <svg
@@ -221,28 +74,7 @@ export function Hero() {
             </Link>
             <Link
               to="/destinations"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.25)",
-                cursor: "pointer",
-                padding: "14px 32px",
-                borderRadius: 12,
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 600,
-                fontSize: 15,
-                backdropFilter: "blur(8px)",
-                transition: "all 0.25s",
-                textDecoration: "none",
-                display: "flex",
-                alignItems: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.18)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-              }}
+              className="bg-white/10 text-white border border-white/25 cursor-pointer py-3.5 px-8 rounded-xl font-poppins font-semibold text-[15px] backdrop-blur-[8px] transition-all duration-250 no-underline flex items-center hover:bg-white/[0.18]"
             >
               Explore Courses
             </Link>
@@ -250,54 +82,16 @@ export function Hero() {
         </div>
 
         {/* Right — stats card */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-            animation: "fadeUp 1s ease 0.4s both",
-          }}
-        >
+        <div className="grid grid-cols-2 gap-4 animate-[fadeUp_1s_ease_0.4s_both]">
           {STATS.map((s, i) => (
             <div
               key={i}
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                borderRadius: 16,
-                padding: "28px 24px",
-                border: "1px solid rgba(255,255,255,0.12)",
-                backdropFilter: "blur(10px)",
-                transition: "all 0.3s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                e.currentTarget.style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
+              className="bg-white/[0.07] rounded-2xl py-7 px-6 border border-white/[0.12] backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.12] hover:-translate-y-1"
             >
-              <div
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 800,
-                  fontSize: 36,
-                  color: "#64B5F6",
-                  lineHeight: 1,
-                }}
-              >
+              <div className="font-poppins font-extrabold text-4xl text-brand-lighter leading-none">
                 {s.value}
               </div>
-              <div
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 13,
-                  color: "rgba(255,255,255,0.6)",
-                  marginTop: 6,
-                  fontWeight: 500,
-                }}
-              >
+              <div className="font-poppins text-[13px] text-white/60 mt-1.5 font-medium">
                 {s.label}
               </div>
             </div>
@@ -306,12 +100,12 @@ export function Hero() {
       </div>
 
       {/* Wave */}
-      <div style={{ position: "absolute", bottom: -1, left: 0, right: 0 }}>
+      <div className="absolute -bottom-px left-0 right-0">
         <svg
           viewBox="0 0 1440 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ display: "block" }}
+          className="block"
         >
           <defs>
             <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">

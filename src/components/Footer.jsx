@@ -1,6 +1,3 @@
-// src/sections/Footer.jsx
-// Fully responsive footer — works cleanly on desktop, tablet, and mobile
-
 import { Link } from "react-router-dom";
 import { ICONS } from "../components/Icon";
 
@@ -30,161 +27,37 @@ const CONTACT_INFO = [
 
 const SOCIAL = ["facebook", "twitter", "linkedin"];
 
-// ── Responsive breakpoints via injected <style> ──────────────────────────
-const FOOTER_STYLES = `
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 56px;
-  }
-
-  /* Tablet: 2 columns */
-  @media (max-width: 900px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-  }
-
-  /* Mobile: single column */
-  @media (max-width: 520px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    /* Force every column to left-align on mobile */
-    .footer-grid > div {
-      text-align: left !important;
-    }
-    .footer-grid > div p,
-    .footer-grid > div span {
-      text-align: left !important;
-    }
-    .footer-grid > div img {
-      margin-left: 0 !important;
-      margin-right: auto !important;
-    }
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  @media (max-width: 520px) {
-    .footer-bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-    }
-  }
-
-  .footer-link {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: color 0.2s;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  .footer-link:hover { color: #64B5F6; }
-
-  .footer-service-item {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: color 0.2s;
-    text-align: left;
-  }
-  .footer-service-item:hover { color: #64B5F6; }
-
-  .footer-social-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.07);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid rgba(255,255,255,0.1);
-    flex-shrink: 0;
-  }
-  .footer-social-btn:hover {
-    background: #1565C0;
-    border-color: #1565C0;
-  }
-`;
-
 export function Footer() {
   return (
-    <footer
-      style={{
-        background: "#0A1F44",
-        padding: "72px 24px 32px",
-        width: "100%",
-        boxSizing: "border-box",
-      }}
-    >
-      <style>{FOOTER_STYLES}</style>
-
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        {/* ── 4-column grid (collapses on smaller screens) ─────────────── */}
-        <div className="footer-grid">
+    <footer className="bg-navy pt-[72px] px-6 pb-8 w-full box-border">
+      <div className="max-w-[1200px] mx-auto">
+        {/* 4-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12 mb-14">
           {/* Brand column */}
-          <div style={{ textAlign: "left" }}>
+          <div className="text-left">
             {/* Logo */}
-            <div style={{ marginBottom: 20 }}>
+            <div className="mb-5">
               <img
                 src="../src/assets/G.png"
                 alt="Grace International Logo"
-                style={{
-                  width: 90,
-                  height: 90,
-                  objectFit: "contain",
-                  display: "block",
-                  marginLeft: 0,
-                }}
+                className="w-[90px] h-[90px] object-contain block ml-0"
               />
             </div>
 
             {/* Tagline */}
-            <p
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 14,
-                color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.75,
-                marginBottom: 24,
-                maxWidth: 280,
-                textAlign: "left",
-              }}
-            >
+            <p className="font-poppins text-sm text-white/55 leading-[1.75] mb-6 max-w-[280px] text-left">
               Where we connect life &amp; learning. Trusted by 50,000+ students
               across the globe for 19+ years.
             </p>
 
             {/* Social icons */}
-            <div
-              style={{
-                display: "flex",
-                gap: 10,
-                flexWrap: "wrap",
-                justifyContent: "flex-start",
-              }}
-            >
+            <div className="flex gap-2.5 flex-wrap justify-start">
               {SOCIAL.map((s) => (
-                <button key={s} className="footer-social-btn" aria-label={s}>
+                <button
+                  key={s}
+                  aria-label={s}
+                  className="w-9 h-9 rounded-[10px] bg-white/[0.07] flex items-center justify-center cursor-pointer transition-all duration-200 border border-white/10 shrink-0 hover:bg-brand hover:border-brand"
+                >
                   <svg
                     width={15}
                     height={15}
@@ -204,21 +77,15 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                color: "#fff",
-                marginBottom: 20,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-              }}
-            >
+            <h4 className="font-poppins font-bold text-xs text-white mb-5 tracking-[1.5px] uppercase">
               Quick Links
             </h4>
             {NAV_LINKS.map((l) => (
-              <Link key={l.label} to={l.path} className="footer-link">
+              <Link
+                key={l.label}
+                to={l.path}
+                className="font-poppins text-sm text-white/50 mb-2.5 cursor-pointer transition-colors duration-200 no-underline block text-left hover:text-brand-lighter"
+              >
                 {l.label}
               </Link>
             ))}
@@ -226,21 +93,14 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                color: "#fff",
-                marginBottom: 20,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-              }}
-            >
+            <h4 className="font-poppins font-bold text-xs text-white mb-5 tracking-[1.5px] uppercase">
               Services
             </h4>
             {SERVICES.map((s) => (
-              <div key={s.title} className="footer-service-item">
+              <div
+                key={s.title}
+                className="font-poppins text-sm text-white/50 mb-2.5 cursor-pointer transition-colors duration-200 text-left hover:text-brand-lighter"
+              >
                 {s.title}
               </div>
             ))}
@@ -248,42 +108,12 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                color: "#fff",
-                marginBottom: 20,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-              }}
-            >
+            <h4 className="font-poppins font-bold text-xs text-white mb-5 tracking-[1.5px] uppercase">
               Contact
             </h4>
             {CONTACT_INFO.map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  gap: 12,
-                  marginBottom: 16,
-                  alignItems: "flex-start",
-                }}
-              >
-                {/* Icon container — fixed size so it never squishes */}
-                <div
-                  style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: 8,
-                    background: "rgba(100,181,246,0.12)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
+              <div key={i} className="flex gap-3 mb-4 items-start">
+                <div className="w-8 h-8 rounded-lg bg-brand-lighter/[0.12] flex items-center justify-center shrink-0">
                   <svg
                     width={14}
                     height={14}
@@ -297,17 +127,7 @@ export function Footer() {
                     <path d={ICONS[c.icon]} />
                   </svg>
                 </div>
-
-                <span
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 13,
-                    color: "rgba(255,255,255,0.55)",
-                    lineHeight: 1.6,
-                    paddingTop: 6,
-                    wordBreak: "break-word",
-                  }}
-                >
+                <span className="font-poppins text-[13px] text-white/55 leading-[1.6] pt-1.5 break-words">
                   {c.text}
                 </span>
               </div>
@@ -315,30 +135,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ── Divider line ─────────────────────────────────────────────── */}
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            paddingTop: 24,
-          }}
-        >
-          <div className="footer-bottom">
-            <span
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 12,
-                color: "rgba(255,255,255,0.3)",
-              }}
-            >
+        {/* Divider line */}
+        <div className="border-t border-white/[0.08] pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center flex-wrap gap-2.5">
+            <span className="font-poppins text-xs text-white/30">
               © 2025 Grace International Group. All rights reserved.
             </span>
-            <span
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 12,
-                color: "rgba(255,255,255,0.3)",
-              }}
-            >
+            <span className="font-poppins text-xs text-white/30">
               MARA Registered Migration Agents
             </span>
           </div>
