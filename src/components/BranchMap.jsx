@@ -454,7 +454,7 @@ export function BranchMap() {
       <div className="branch-inner">
         {/* ── Heading ──────────────────────────────────────────────────── */}
         <div className="branch-heading">
-          <span className="branch-eyebrow">Our Presence</span>
+          {/* <span className="branch-eyebrow">Our Presence</span> */}
           <h2 className="branch-title">Our Offices Around the World</h2>
           <p className="branch-subtitle">
             With offices across Australia and New Zealand, expert guidance is

@@ -30,7 +30,7 @@ export function Testimonials() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <span
+            {/* <span
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
@@ -43,7 +43,7 @@ export function Testimonials() {
               }}
             >
               Student Stories
-            </span>
+            </span> */}
             <h2
               style={{
                 fontFamily: "'Poppins', sans-serif",

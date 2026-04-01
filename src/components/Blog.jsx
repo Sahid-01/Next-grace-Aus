@@ -44,7 +44,7 @@ export function Blog() {
             }}
           >
             <div>
-              <span
+              {/* <span
                 style={{
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 700,
@@ -57,7 +57,7 @@ export function Blog() {
                 }}
               >
                 Insights
-              </span>
+              </span> */}
               <h2
                 style={{
                   fontFamily: "'Poppins', sans-serif",

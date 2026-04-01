@@ -52,7 +52,7 @@ export function Process() {
       <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
-            <span
+            {/* <span
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
@@ -65,7 +65,7 @@ export function Process() {
               }}
             >
               How It Works
-            </span>
+            </span> */}
             <h2
               style={{
                 fontFamily: "'Poppins', sans-serif",

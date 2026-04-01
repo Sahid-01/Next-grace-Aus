@@ -165,7 +165,7 @@ export function Hero() {
               textAlign: "center",
             }}
           >
-            From choosing the right university to landing your visa — Grace
+            From choosing the right university to landing your visa Grace
             International has guided 50,000+ students across Australia, UK,
             Canada, USA & New Zealand.
           </p>
