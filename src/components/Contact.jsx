@@ -20,59 +20,18 @@ export function Contact() {
   return (
     <section
       id="contact"
-      style={{
-        background: `url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80") center/cover no-repeat`,
-        padding: "100px 24px",
-        width: "100%",
-      }}
+      className="bg-white py-[100px] px-6 w-full"
     >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 64,
-          alignItems: "start",
-          color: "#fff",
-        }}
-      >
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <FadeIn>
           <div>
-            <span
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: 12,
-                color: "#FFD700",
-              }}
-            >
+            <span className="font-poppins font-bold text-xs tracking-[2px] uppercase text-brand block mb-3">
               Get in Touch
             </span>
-            <h2
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(28px, 3.5vw, 44px)",
-                marginBottom: 20,
-                lineHeight: 1.2,
-              }}
-            >
+            <h2 className="font-poppins font-extrabold text-[clamp(28px,3.5vw,44px)] text-heading mb-5 leading-[1.2]">
               Ready to Begin Your Journey?
             </h2>
-            <p
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 16,
-                lineHeight: 1.7,
-                marginBottom: 40,
-                color: "#000000",
-              }}
-            >
+            <p className="font-poppins text-base text-body leading-[1.7] mb-10">
               Our expert advisors are ready to guide you through every step of
               your study abroad journey.
             </p>
@@ -81,41 +40,8 @@ export function Contact() {
               { icon: "mail", label: "melbourne@graceintlgroup.com.au" },
               { icon: "mappin", label: "Multiple Branches Across Australia" },
             ].map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 16,
-                  marginBottom: 20,
-                  padding: "10px 12px",
-                  borderRadius: 12,
-                  transition: "all 0.3s",
-                  cursor: "pointer",
-                  background: "#E3F2FD",
-                  color: "#0A1F44",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#1565C0"; // hover background
-                  e.currentTarget.style.color = "#fff"; // hover font color
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#E3F2FD"; // original background
-                  e.currentTarget.style.color = "#0A1F44"; // original font color
-                }}
-              >
-                <div
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 12,
-                    background: "rgba(255, 255, 255, 0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
+              <div key={i} className="flex items-center gap-4 mb-5">
+                <div className="w-11 h-11 rounded-xl bg-surface-blue flex items-center justify-center shrink-0">
                   <svg
                     width={18}
                     height={18}
@@ -129,13 +55,7 @@ export function Contact() {
                     <path d={ICONS[c.icon]} />
                   </svg>
                 </div>
-                <span
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 15,
-                    fontWeight: 500,
-                  }}
-                >
+                <span className="font-poppins text-[15px] text-dark-text font-medium">
                   {c.label}
                 </span>
               </div>
@@ -144,30 +64,10 @@ export function Contact() {
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <div
-            style={{
-              background: "rgba(255, 255, 255, 0.95)",
-              borderRadius: 24,
-              padding: "40px",
-              border: "1px solid #EBF0FB",
-              boxShadow: "0 2px 20px rgba(10,31,68,0.05)",
-              color: "#0A1F44",
-            }}
-          >
+          <div className="bg-surface rounded-3xl p-10 border border-surface-border shadow-[0_2px_20px_rgba(10,31,68,0.05)]">
             {sent ? (
-              <div style={{ textAlign: "center", padding: "40px 0" }}>
-                <div
-                  style={{
-                    width: 64,
-                    height: 64,
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #1565C0, #42A5F5)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 20px",
-                  }}
-                >
+              <div className="text-center py-10">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand to-brand-light flex items-center justify-center mx-auto mb-5">
                   <svg
                     width={24}
                     height={24}
@@ -180,37 +80,16 @@ export function Contact() {
                     <path d={ICONS.check} />
                   </svg>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 22,
-                    marginBottom: 8,
-                  }}
-                >
+                <h3 className="font-poppins font-bold text-[22px] text-heading mb-2">
                   Message Sent!
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 14,
-                  }}
-                >
+                <p className="font-poppins text-body text-sm">
                   We'll get back to you within 24 hours.
                 </p>
               </div>
             ) : (
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: 16 }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 20,
-                    marginBottom: 8,
-                  }}
-                >
+              <div className="flex flex-col gap-4">
+                <h3 className="font-poppins font-bold text-xl text-heading mb-2">
                   Book Free Consultation
                 </h3>
                 {[
@@ -226,25 +105,7 @@ export function Contact() {
                     onChange={(e) =>
                       setForm({ ...form, [f.key]: e.target.value })
                     }
-                    style={{
-                      width: "100%",
-                      padding: "13px 16px",
-                      borderRadius: 10,
-                      border: "1.5px solid #E2E8F0",
-                      fontFamily: "'Poppins', sans-serif",
-                      fontSize: 14,
-                      color: "#334155",
-                      background: "#fff",
-                      outline: "none",
-                      transition: "border-color 0.2s",
-                      boxSizing: "border-box",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "#1565C0";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "#E2E8F0";
-                    }}
+                    className="w-full py-[13px] px-4 rounded-[10px] border-[1.5px] border-[#E2E8F0] font-poppins text-sm text-dark-text bg-white outline-none transition-colors duration-200 box-border focus:border-brand"
                   />
                 ))}
                 <textarea
@@ -254,52 +115,11 @@ export function Contact() {
                   onChange={(e) =>
                     setForm({ ...form, message: e.target.value })
                   }
-                  style={{
-                    width: "100%",
-                    padding: "13px 16px",
-                    borderRadius: 10,
-                    border: "1.5px solid #E2E8F0",
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 14,
-                    color: "#334155",
-                    background: "#fff",
-                    outline: "none",
-                    transition: "border-color 0.2s",
-                    resize: "none",
-                    boxSizing: "border-box",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#1565C0";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#E2E8F0";
-                  }}
+                  className="w-full py-[13px] px-4 rounded-[10px] border-[1.5px] border-[#E2E8F0] font-poppins text-sm text-dark-text bg-white outline-none transition-colors duration-200 resize-none box-border focus:border-brand"
                 />
                 <button
                   onClick={handleSubmit}
-                  style={{
-                    background: "linear-gradient(135deg, #1565C0, #0A3B6B)",
-                    color: "#fff",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: "14px",
-                    borderRadius: 10,
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 15,
-                    transition: "all 0.25s",
-                    boxShadow: "0 4px 16px rgba(21,101,192,0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-1px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 8px 24px rgba(21,101,192,0.4)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 16px rgba(21,101,192,0.3)";
-                  }}
+                  className="bg-gradient-to-br from-brand to-navy-light text-white border-none cursor-pointer py-3.5 rounded-[10px] font-poppins font-bold text-[15px] transition-all duration-250 shadow-[0_4px_16px_rgba(21,101,192,0.3)] hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(21,101,192,0.4)]"
                 >
                   Send Message
                 </button>

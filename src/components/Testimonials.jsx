@@ -24,70 +24,20 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section
-      style={{ background: "#F7F9FC", padding: "100px 24px", width: "100%" }}
-    >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <section className="bg-surface py-[100px] px-6 w-full">
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <span
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "#1565C0",
-                display: "block",
-                marginBottom: 12,
-              }}
-            >
-              Student Stories
-            </span>
-            <h2
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: "clamp(32px, 4vw, 48px)",
-                fontWeight: 800,
-                color: "#0A1F44",
-                margin: 0,
-              }}
-            >
+          <div className="text-center mb-16">
+            <h2 className="font-poppins text-[clamp(32px,4vw,48px)] font-extrabold text-heading m-0">
               Clients are Talking
             </h2>
           </div>
         </FadeIn>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: 24,
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
           {TESTIMONIALS.map((t, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div
-                style={{
-                  background: "#fff",
-                  borderRadius: 20,
-                  padding: "36px 32px",
-                  boxShadow: "0 2px 20px rgba(10,31,68,0.06)",
-                  border: "1px solid #EBF0FB",
-                  transition: "all 0.3s",
-                  height: "100%",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 12px 40px rgba(21,101,192,0.12)";
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 2px 20px rgba(10,31,68,0.06)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
+              <div className="bg-white rounded-[20px] py-9 px-8 shadow-[0_2px_20px_rgba(10,31,68,0.06)] border border-surface-border transition-all duration-300 h-full hover:shadow-[0_12px_40px_rgba(21,101,192,0.12)] hover:-translate-y-1">
                 {/* Quote icon */}
                 <svg
                   width={28}
@@ -95,12 +45,12 @@ export function Testimonials() {
                   viewBox="0 0 24 24"
                   fill="#BBDEFB"
                   stroke="none"
-                  style={{ marginBottom: 16 }}
+                  className="mb-4"
                 >
                   <path d={ICONS.quote} />
                 </svg>
                 {/* Stars */}
-                <div style={{ display: "flex", gap: 3, marginBottom: 16 }}>
+                <div className="flex gap-[3px] mb-4">
                   {[...Array(5)].map((_, j) => (
                     <svg
                       key={j}
@@ -114,55 +64,18 @@ export function Testimonials() {
                     </svg>
                   ))}
                 </div>
-                <p
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 15,
-                    lineHeight: 1.7,
-                    color: "#475569",
-                    marginBottom: 24,
-                    fontStyle: "italic",
-                  }}
-                >
+                <p className="font-poppins text-[15px] leading-[1.7] text-dark-sub mb-6 italic">
                   "{t.text}"
                 </p>
-                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div
-                    style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: "50%",
-                      background: "linear-gradient(135deg, #1565C0, #42A5F5)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      color: "#fff",
-                      flexShrink: 0,
-                    }}
-                  >
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-brand to-brand-light flex items-center justify-center font-poppins font-bold text-sm text-white shrink-0">
                     {t.initials}
                   </div>
                   <div>
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 15,
-                        color: "#0A1F44",
-                      }}
-                    >
+                    <div className="font-poppins font-bold text-[15px] text-heading">
                       {t.name}
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 12,
-                        color: "#94A3B8",
-                      }}
-                    >
+                    <div className="font-poppins text-xs text-muted">
                       {t.course}
                     </div>
                   </div>
