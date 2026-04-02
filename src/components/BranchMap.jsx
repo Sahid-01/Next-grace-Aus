@@ -251,7 +251,7 @@ export function BranchMap() {
       <div className="max-w-[1200px] mx-auto">
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="font-[Playfair_Display,serif] font-extrabold text-[clamp(28px,4vw,46px)] text-heading m-0 mb-3.5 leading-[1.15]">
+          <h2 className="font-[Poppins] font-extrabold text-[clamp(28px,4vw,46px)] text-heading m-0 mb-3.5 leading-[1.15]">
             Our Offices Around the World
           </h2>
           <p className="font-poppins text-[15px] text-body max-w-[500px] mx-auto leading-[1.7]">

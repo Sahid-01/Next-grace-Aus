@@ -34,7 +34,7 @@ export function Navbar() {
           : "bg-transparent backdrop-blur-none shadow-none"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
+      <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link
           to="/"
@@ -43,7 +43,7 @@ export function Navbar() {
           <img
             src="../src/assets/G.png"
             alt="Grace International Logo"
-            className="w-[100px] h-[65px] object-contain"
+            className="w-[100px] h-[70px] object-contain"
           />
         </Link>
 

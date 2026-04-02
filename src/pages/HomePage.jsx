@@ -9,6 +9,7 @@ import { Contact } from "../components/Contact";
 import { BranchMap } from "../components/BranchMap";
 import { Team } from "../components/Team";
 import { WhyChooseGrace } from "../components/WhyChooseGrace";
+import { Faq } from "../components/Faq";
 
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Testimonials />
       <Blog />
       <BranchMap />
+      <Faq />
       <CTA />
       <Contact />
     </>
