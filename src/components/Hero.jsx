@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ICONS } from "../components/Icon";
+import heroImg from "../assets/hero.webp";
 
 const STATS = [
   { value: "50K+", label: "Students Helped" },
@@ -17,7 +18,7 @@ export function Hero() {
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/src/assets/hero.webp')" }}
+        style={{ backgroundImage: `url(${heroImg})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[rgba(10,31,68,0.75)] via-[rgba(10,59,107,0.75)] to-[rgba(21,101,192,0.7)]" />
 
