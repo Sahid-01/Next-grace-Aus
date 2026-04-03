@@ -2,19 +2,19 @@
 
 /* ── Custom theme tokens ──────────────────────────────────────────────── */
 @theme {
-  --color-navy: #0A1F44;
-  --color-navy-light: #0A3B6B;
-  --color-brand: #1565C0;
-  --color-brand-light: #42A5F5;
-  --color-brand-lighter: #64B5F6;
-  --color-brand-lightest: #90CAF9;
-  --color-surface: #F7F9FC;
-  --color-surface-blue: #E3F2FD;
-  --color-surface-bluer: #BBDEFB;
-  --color-surface-border: #EBF0FB;
-  --color-heading: #0A1F44;
-  --color-body: #64748B;
-  --color-muted: #94A3B8;
+  --color-navy: #0a1f44;
+  --color-navy-light: #0a3b6b;
+  --color-brand: #1565c0;
+  --color-brand-light: #42a5f5;
+  --color-brand-lighter: #64b5f6;
+  --color-brand-lightest: #90caf9;
+  --color-surface: #f7f9fc;
+  --color-surface-blue: #e3f2fd;
+  --color-surface-bluer: #bbdefb;
+  --color-surface-border: #ebf0fb;
+  --color-heading: #0a1f44;
+  --color-body: #64748b;
+  --color-muted: #94a3b8;
   --color-dark-text: #334155;
   --color-dark-sub: #475569;
   --font-family-poppins: "Poppins", sans-serif;
@@ -34,7 +34,12 @@
     padding: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
   }
 
@@ -44,56 +49,88 @@
 
   /* Keyframes used across components */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }
 
 /* ── Leaflet popup overrides (3rd-party DOM, can't use className) ───── */
 .leaflet-popup-content-wrapper {
   border-radius: 14px !important;
-  box-shadow: 0 8px 32px rgba(10,31,68,0.16) !important;
-  border: 1px solid #EBF0FB !important;
+  box-shadow: 0 8px 32px rgba(10, 31, 68, 0.16) !important;
+  border: 1px solid #ebf0fb !important;
   padding: 0 !important;
   overflow: hidden;
 }
-.leaflet-popup-content { margin: 0 !important; }
-.leaflet-popup-tip { background: #fff !important; }
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+.leaflet-popup-tip {
+  background: #fff !important;
+}
 .leaflet-popup-close-button {
-  color: #94A3B8 !important;
+  color: #94a3b8 !important;
   padding: 8px 10px !important;
   font-size: 16px !important;
 }
-.leaflet-popup-close-button:hover { color: #1565C0 !important; background: none !important; }
+.leaflet-popup-close-button:hover {
+  color: #1565c0 !important;
+  background: none !important;
+}
 
 .leaflet-control-zoom a {
   border-radius: 8px !important;
-  border: 1px solid #E2E8F0 !important;
-  color: #0A1F44 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0a1f44 !important;
 }
 .leaflet-control-zoom a:hover {
-  background: #E3F2FD !important;
-  color: #1565C0 !important;
+  background: #e3f2fd !important;
+  color: #1565c0 !important;
 }
-.leaflet-control-zoom-in  { border-radius: 8px 8px 0 0 !important; }
-.leaflet-control-zoom-out { border-radius: 0 0 8px 8px !important; }
+.leaflet-control-zoom-in {
+  border-radius: 8px 8px 0 0 !important;
+}
+.leaflet-control-zoom-out {
+  border-radius: 0 0 8px 8px !important;
+}
 
 /* ── Responsive nav hide ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .desktop-nav { display: none !important; }
+  .desktop-nav {
+    display: none !important;
+  }
 }
 
 /* ── Mobile hamburger show ───────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .mobile-menu-btn { display: block !important; }
+  .mobile-menu-btn {
+    display: block !important;
+  }
 }

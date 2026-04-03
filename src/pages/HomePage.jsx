@@ -9,20 +9,21 @@ import { Contact } from "../components/Contact";
 import { BranchMap } from "../components/BranchMap";
 import { Team } from "../components/Team";
 import { WhyChooseGrace } from "../components/WhyChooseGrace";
-
+import { Faq } from "../components/Faq";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <WhyChooseGrace />
+      <BranchMap />
       <Services />
       {/* <Destinations /> */}
       <Team />
       <Process />
       <Testimonials />
       <Blog />
-      <BranchMap />
+      <Faq />
       <CTA />
       <Contact />
     </>

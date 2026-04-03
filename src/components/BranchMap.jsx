@@ -251,7 +251,7 @@ export function BranchMap() {
       <div className="max-w-[1200px] mx-auto">
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="font-[Playfair_Display,serif] font-extrabold text-[clamp(28px,4vw,46px)] text-heading m-0 mb-3.5 leading-[1.15]">
+          <h2 className="font-[Poppins] font-extrabold text-[clamp(28px,4vw,46px)] text-heading m-0 mb-3.5 leading-[1.15]">
             Our Offices Around the World
           </h2>
           <p className="font-poppins text-[15px] text-body max-w-[500px] mx-auto leading-[1.7]">
@@ -263,7 +263,13 @@ export function BranchMap() {
         {/* Body: cards + map */}
         <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 items-start">
           {/* Branch card list */}
-          <div className="flex flex-col gap-2.5 max-h-[480px] overflow-y-auto pr-0.5 md:grid-cols-1 grid grid-cols-2 sm:grid-cols-2 md:flex md:flex-col" style={{ scrollbarWidth: "thin", scrollbarColor: "#BBDEFB #EBF4FF" }}>
+          <div
+            className="flex flex-col gap-2.5 max-h-[480px] overflow-y-auto pr-0.5 md:grid-cols-1 grid grid-cols-2 sm:grid-cols-2 md:flex md:flex-col"
+            style={{
+              scrollbarWidth: "thin",
+              scrollbarColor: "#BBDEFB #EBF4FF",
+            }}
+          >
             {BRANCHES.map((branch) => {
               const isActive = branch.id === activeId;
               return (
@@ -376,9 +382,7 @@ export function BranchMap() {
                       {/* Address */}
                       <p className="text-xs text-dark-sub mb-1.5 leading-[1.5]">
                         📍{" "}
-                        <span className="text-dark-text">
-                          {branch.address}
-                        </span>
+                        <span className="text-dark-text">{branch.address}</span>
                       </p>
 
                       {/* Phone */}

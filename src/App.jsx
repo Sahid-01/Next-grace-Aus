@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import WhatsappButton from "./components/WhatsappButton";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import DestinationsPage from "./pages/DestinationsPage";
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
+        <WhatsappButton />
       </div>
     </Router>
   );

@@ -10,10 +10,7 @@ const DESTINATIONS = [
 
 export function Destinations() {
   return (
-    <section
-      id="destinations"
-      className="bg-white py-[100px] px-6 w-full"
-    >
+    <section id="destinations" className="bg-white py-[100px] px-6 w-full">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
           <div className="text-center mb-16">

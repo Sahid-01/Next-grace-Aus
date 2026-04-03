@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon, ICONS } from "./Icon";
+import logoImg from "../assets/Grace-Logo.webp";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },
@@ -34,23 +35,21 @@ export function Navbar() {
           : "bg-transparent backdrop-blur-none shadow-none"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
+      <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2.5 cursor-pointer no-underline"
         >
           <img
-            src="../src/assets/G.png"
+            src={logoImg}
             alt="Grace International Logo"
-            className="w-[100px] h-[65px] object-contain"
+            className="w-[100px] h-[70px] object-contain"
           />
         </Link>
 
         {/* Desktop nav */}
-        <div
-          className="desktop-nav flex items-center gap-1"
-        >
+        <div className="desktop-nav flex items-center gap-1">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.label}
