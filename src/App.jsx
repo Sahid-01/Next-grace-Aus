@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
 import WhatsappButton from "./components/WhatsappButton";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
@@ -13,6 +14,7 @@ import ContactPage from "./pages/ContactPage";
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="w-screen max-w-full overflow-x-hidden">
         <Navbar />
         <Routes>
