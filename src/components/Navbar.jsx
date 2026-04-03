@@ -49,9 +49,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div
-          className="desktop-nav flex items-center gap-1"
-        >
+        <div className="desktop-nav flex items-center gap-1">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.label}

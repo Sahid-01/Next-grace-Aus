@@ -395,33 +395,38 @@ export default function OurBranch() {
       id="our-branches"
       style={{
         padding: "100px 24px",
-        background: "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)",
-        width: "100%"
+        background:
+          "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)",
+        width: "100%",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <span style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 700,
-            fontSize: 12,
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            color: "#1565C0",
-            display: "block",
-            marginBottom: 12
-          }}>
+          <span
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 700,
+              fontSize: 12,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              color: "#1565C0",
+              display: "block",
+              marginBottom: 12,
+            }}
+          >
             Our Global Presence
           </span>
-          <h2 style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: "clamp(32px, 4vw, 48px)",
-            fontWeight: 800,
-            color: "#0A1F44",
-            margin: 0,
-            lineHeight: 1.15
-          }}>
+          <h2
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: "clamp(32px, 4vw, 48px)",
+              fontWeight: 800,
+              color: "#0A1F44",
+              margin: 0,
+              lineHeight: 1.15,
+            }}
+          >
             Our Branches Worldwide
           </h2>
         </div>
@@ -444,26 +449,30 @@ export default function OurBranch() {
                 borderRadius: 16,
                 background: "#fff",
                 border: "1px solid #EBF0FB",
-                boxShadow: hoveredIndex === i
-                  ? "0 12px 40px rgba(21,101,192,0.15)"
-                  : "0 2px 20px rgba(10,31,68,0.06)",
+                boxShadow:
+                  hoveredIndex === i
+                    ? "0 12px 40px rgba(21,101,192,0.15)"
+                    : "0 2px 20px rgba(10,31,68,0.06)",
                 transition: "all 0.3s ease",
                 cursor: "pointer",
                 display: "flex",
                 flexDirection: "column",
                 minHeight: "280px",
-                transform: hoveredIndex === i ? "translateY(-4px)" : "translateY(0)"
+                transform:
+                  hoveredIndex === i ? "translateY(-4px)" : "translateY(0)",
               }}
             >
               {/* Flag & Country Header */}
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 12,
-                marginBottom: 16,
-                paddingBottom: 16,
-                borderBottom: "1px solid #EBF0FB"
-              }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  marginBottom: 16,
+                  paddingBottom: 16,
+                  borderBottom: "1px solid #EBF0FB",
+                }}
+              >
                 <img
                   src={branch.flag}
                   alt={`${branch.country} flag`}
@@ -473,49 +482,57 @@ export default function OurBranch() {
                     objectFit: "cover",
                     borderRadius: 6,
                     border: "1px solid #E2E8F0",
-                    flexShrink: 0
+                    flexShrink: 0,
                   }}
                 />
                 <div style={{ flex: 1 }}>
-                  <h3 style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 16,
-                    fontWeight: 700,
-                    color: "#0A1F44",
-                    margin: 0,
-                    marginBottom: 2
-                  }}>
+                  <h3
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontSize: 16,
+                      fontWeight: 700,
+                      color: "#0A1F44",
+                      margin: 0,
+                      marginBottom: 2,
+                    }}
+                  >
                     {branch.country}
                   </h3>
-                  <p style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    color: "#1565C0",
-                    margin: 0
-                  }}>
+                  <p
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "#1565C0",
+                      margin: 0,
+                    }}
+                  >
                     {branch.office}
                   </p>
                 </div>
               </div>
 
               {/* Address */}
-              <div style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 10,
-                marginBottom: 12
-              }}>
-                <div style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 8,
-                  background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+              <div
+                style={{
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0
-                }}>
+                  alignItems: "flex-start",
+                  gap: 10,
+                  marginBottom: 12,
+                }}
+              >
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 8,
+                    background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
                   <svg
                     width={16}
                     height={16}
@@ -529,35 +546,41 @@ export default function OurBranch() {
                     <path d={ICONS.location} />
                   </svg>
                 </div>
-                <p style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 13,
-                  color: "#64748B",
-                  margin: 0,
-                  lineHeight: 1.6,
-                  flex: 1
-                }}>
+                <p
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    color: "#64748B",
+                    margin: 0,
+                    lineHeight: 1.6,
+                    flex: 1,
+                  }}
+                >
                   {branch.address}
                 </p>
               </div>
 
               {/* Contact */}
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                marginBottom: 12
-              }}>
-                <div style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 8,
-                  background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+              <div
+                style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0
-                }}>
+                  gap: 10,
+                  marginBottom: 12,
+                }}
+              >
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 8,
+                    background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
                   <svg
                     width={16}
                     height={16}
@@ -571,33 +594,39 @@ export default function OurBranch() {
                     <path d={ICONS.phone} />
                   </svg>
                 </div>
-                <p style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 13,
-                  color: "#0A1F44",
-                  margin: 0,
-                  fontWeight: 500
-                }}>
+                <p
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    color: "#0A1F44",
+                    margin: 0,
+                    fontWeight: 500,
+                  }}
+                >
                   {branch.contact}
                 </p>
               </div>
 
               {/* Email */}
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 10
-              }}>
-                <div style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 8,
-                  background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+              <div
+                style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0
-                }}>
+                  gap: 10,
+                }}
+              >
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 8,
+                    background: "linear-gradient(135deg, #E3F2FD, #BBDEFB)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
                   <svg
                     width={16}
                     height={16}
@@ -611,14 +640,16 @@ export default function OurBranch() {
                     <path d={ICONS.mail} />
                   </svg>
                 </div>
-                <p style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 12,
-                  color: "#1565C0",
-                  margin: 0,
-                  fontWeight: 500,
-                  wordBreak: "break-word"
-                }}>
+                <p
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 12,
+                    color: "#1565C0",
+                    margin: 0,
+                    fontWeight: 500,
+                    wordBreak: "break-word",
+                  }}
+                >
                   {branch.email}
                 </p>
               </div>

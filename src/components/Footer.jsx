@@ -21,8 +21,8 @@ const SERVICES = [
 ];
 
 const CONTACT_INFO = [
-  { icon: "phone",  text: "+61 (03) 9662 9020" },
-  { icon: "mail",   text: "melbourne@graceintlgroup.com" },
+  { icon: "phone", text: "+61 (03) 9662 9020" },
+  { icon: "mail", text: "melbourne@graceintlgroup.com" },
   { icon: "mappin", text: "Melbourne, Sydney & 45 branches" },
 ];
 

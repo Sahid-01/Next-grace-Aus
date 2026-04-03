@@ -27,10 +27,7 @@ const BLOGS = [
 
 export function Blog() {
   return (
-    <section
-      id="blog"
-      className="bg-white py-[100px] px-6 w-full"
-    >
+    <section id="blog" className="bg-white py-[100px] px-6 w-full">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
           <div className="flex items-end justify-between mb-14 flex-wrap gap-5">

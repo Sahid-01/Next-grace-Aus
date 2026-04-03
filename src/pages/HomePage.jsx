@@ -11,12 +11,12 @@ import { Team } from "../components/Team";
 import { WhyChooseGrace } from "../components/WhyChooseGrace";
 import { Faq } from "../components/Faq";
 
-
 export default function HomePage() {
   return (
     <>
       <Hero />
       <WhyChooseGrace />
+      <BranchMap />
       <BranchMap />
       <Services />
       {/* <Destinations /> */}
@@ -24,6 +24,7 @@ export default function HomePage() {
       <Process />
       <Testimonials />
       <Blog />
+      <Faq />
       <Faq />
       <CTA />
       <Contact />

@@ -147,9 +147,7 @@ export function Services() {
               key={i}
               onClick={() => goToSlide(i)}
               className={`h-2.5 rounded-[5px] border-none cursor-pointer transition-all duration-300 ${
-                currentIndex === i
-                  ? "w-8 bg-brand"
-                  : "w-2.5 bg-surface-bluer"
+                currentIndex === i ? "w-8 bg-brand" : "w-2.5 bg-surface-bluer"
               }`}
             />
           ))}

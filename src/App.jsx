@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
-          <WhatsappButton />
+        <WhatsappButton />
       </div>
     </Router>
   );
