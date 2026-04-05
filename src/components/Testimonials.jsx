@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { FadeIn } from "../components/FadeIn";
 import { ICONS } from "../components/Icon";
 
 const TESTIMONIALS = [
@@ -41,42 +40,59 @@ const TESTIMONIALS = [
   },
 ];
 
-const VISIBLE = 3;
-
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(3);
   const sectionRef = useRef(null);
   const total = TESTIMONIALS.length;
 
+  // Responsive: update visible card count based on window width
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 640) setVisibleCount(1);
+      else if (window.innerWidth < 1024) setVisibleCount(2);
+      else setVisibleCount(3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Reset index when visibleCount changes to avoid out-of-bound slice
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [visibleCount]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const maxIndex = total - visibleCount;
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % (total - VISIBLE + 1));
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [maxIndex]);
 
   const prev = () => setCurrentIndex((i) => Math.max(0, i - 1));
-  const next = () => setCurrentIndex((i) => Math.min(total - VISIBLE, i + 1));
+  const next = () => setCurrentIndex((i) => Math.min(maxIndex, i + 1));
 
-  const visible = TESTIMONIALS.slice(currentIndex, currentIndex + VISIBLE);
+  const visible = TESTIMONIALS.slice(currentIndex, currentIndex + visibleCount);
+
+  const gridCols =
+    visibleCount === 1
+      ? "1fr"
+      : visibleCount === 2
+      ? "repeat(2, 1fr)"
+      : "repeat(3, 1fr)";
 
   return (
     <section
@@ -84,18 +100,20 @@ export function Testimonials() {
       style={{
         background:
           "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)",
-        padding: "100px 24px",
+        padding: visibleCount === 1 ? "60px 20px" : "100px 24px",
         width: "100%",
+        boxSizing: "border-box",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        {/* Header */}
         <div
           className={`transition-all duration-[800ms] ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
           style={{
             textAlign: "center",
-            marginBottom: 64,
+            marginBottom: visibleCount === 1 ? 40 : 64,
             transitionDelay: "200ms",
           }}
         >
@@ -116,7 +134,10 @@ export function Testimonials() {
           <h2
             style={{
               fontFamily: "'Poppins', sans-serif",
-              fontSize: "clamp(32px, 4vw, 48px)",
+              fontSize:
+                visibleCount === 1
+                  ? "clamp(24px, 6vw, 32px)"
+                  : "clamp(32px, 4vw, 48px)",
               fontWeight: 800,
               color: "#0A1F44",
               margin: 0,
@@ -131,8 +152,8 @@ export function Testimonials() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 24,
+              gridTemplateColumns: gridCols,
+              gap: visibleCount === 1 ? 0 : 24,
               transition: "all 0.4s ease",
             }}
           >
@@ -147,7 +168,7 @@ export function Testimonials() {
                 style={{
                   background: "#fff",
                   borderRadius: 20,
-                  padding: "36px 32px",
+                  padding: visibleCount === 1 ? "28px 24px" : "36px 32px",
                   boxShadow: "0 2px 20px rgba(10,31,68,0.06)",
                   border: "1px solid #EBF0FB",
                   display: "flex",
@@ -176,6 +197,7 @@ export function Testimonials() {
                 >
                   <path d={ICONS.quote} />
                 </svg>
+
                 {/* Stars */}
                 <div style={{ display: "flex", gap: 3, marginBottom: 16 }}>
                   {[...Array(5)].map((_, j) => (
@@ -191,10 +213,11 @@ export function Testimonials() {
                     </svg>
                   ))}
                 </div>
+
                 <p
                   style={{
                     fontFamily: "'Poppins', sans-serif",
-                    fontSize: 15,
+                    fontSize: visibleCount === 1 ? 14 : 15,
                     lineHeight: 1.7,
                     color: "#475569",
                     marginBottom: 24,
@@ -204,11 +227,13 @@ export function Testimonials() {
                 >
                   "{t.text}"
                 </p>
+
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                   <div
                     style={{
                       width: 44,
                       height: 44,
+                      minWidth: 44,
                       borderRadius: "50%",
                       background: "linear-gradient(135deg, #1565C0, #42A5F5)",
                       display: "flex",
@@ -228,7 +253,7 @@ export function Testimonials() {
                       style={{
                         fontFamily: "'Poppins', sans-serif",
                         fontWeight: 700,
-                        fontSize: 15,
+                        fontSize: visibleCount === 1 ? 14 : 15,
                         color: "#0A1F44",
                       }}
                     >
@@ -265,6 +290,7 @@ export function Testimonials() {
               transitionDelay: "800ms",
             }}
           >
+            {/* Prev */}
             <button
               onClick={prev}
               disabled={currentIndex === 0}
@@ -306,7 +332,7 @@ export function Testimonials() {
 
             {/* Dots */}
             <div style={{ display: "flex", gap: 8 }}>
-              {Array.from({ length: total - VISIBLE + 1 }).map((_, i) => (
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
@@ -324,32 +350,31 @@ export function Testimonials() {
               ))}
             </div>
 
+            {/* Next */}
             <button
               onClick={next}
-              disabled={currentIndex === total - VISIBLE}
+              disabled={currentIndex === maxIndex}
               style={{
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                background:
-                  currentIndex === total - VISIBLE ? "#EBF0FB" : "#fff",
+                background: currentIndex === maxIndex ? "#EBF0FB" : "#fff",
                 border: "2px solid",
                 borderColor:
-                  currentIndex === total - VISIBLE ? "#EBF0FB" : "#1565C0",
+                  currentIndex === maxIndex ? "#EBF0FB" : "#1565C0",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                cursor:
-                  currentIndex === total - VISIBLE ? "not-allowed" : "pointer",
+                cursor: currentIndex === maxIndex ? "not-allowed" : "pointer",
                 transition: "all 0.3s",
                 boxShadow: "0 2px 8px rgba(21,101,192,0.15)",
               }}
               onMouseEnter={(e) => {
-                if (currentIndex !== total - VISIBLE)
+                if (currentIndex !== maxIndex)
                   e.currentTarget.style.background = "#1565C0";
               }}
               onMouseLeave={(e) => {
-                if (currentIndex !== total - VISIBLE)
+                if (currentIndex !== maxIndex)
                   e.currentTarget.style.background = "#fff";
               }}
             >
@@ -358,9 +383,7 @@ export function Testimonials() {
                 height={18}
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke={
-                  currentIndex === total - VISIBLE ? "#94A3B8" : "#1565C0"
-                }
+                stroke={currentIndex === maxIndex ? "#94A3B8" : "#1565C0"}
                 strokeWidth={2.5}
                 strokeLinecap="round"
               >

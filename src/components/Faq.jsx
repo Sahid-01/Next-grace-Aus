@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { FadeIn } from "./FadeIn";
 
 const FAQS = [
   {
@@ -32,28 +31,28 @@ const FAQS = [
 export function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section
@@ -61,8 +60,9 @@ export function Faq() {
       style={{
         background:
           "linear-gradient(135deg, #F7F9FC 0%, #E3F2FD 50%, #BBDEFB 100%)",
-        padding: "100px 24px",
+        padding: isMobile ? "60px 20px" : "100px 24px",
         width: "100%",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -70,12 +70,12 @@ export function Faq() {
           maxWidth: 1200,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 64,
-          alignItems: "center",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gap: isMobile ? 40 : 64,
+          alignItems: "start",
         }}
       >
-        {/* Left */}
+        {/* Left — Text + Accordion */}
         <div>
           <span
             className={`transition-all duration-[800ms] ease-out ${
@@ -97,6 +97,7 @@ export function Faq() {
           >
             FAQs
           </span>
+
           <h2
             className={`transition-all duration-[800ms] ease-out ${
               isVisible
@@ -105,10 +106,10 @@ export function Faq() {
             }`}
             style={{
               fontFamily: "'Poppins', sans-serif",
-              fontSize: "clamp(28px, 3.5vw, 44px)",
+              fontSize: isMobile ? "clamp(22px, 6vw, 32px)" : "clamp(28px, 3.5vw, 44px)",
               fontWeight: 800,
               color: "#0A1F44",
-              marginBottom: 40,
+              marginBottom: 32,
               lineHeight: 1.2,
               transitionDelay: "400ms",
             }}
@@ -148,7 +149,7 @@ export function Faq() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "18px 20px",
+                    padding: isMobile ? "14px 16px" : "18px 20px",
                     background: "none",
                     border: "none",
                     cursor: "pointer",
@@ -159,7 +160,7 @@ export function Faq() {
                   <span
                     style={{
                       fontFamily: "'Poppins', sans-serif",
-                      fontSize: 15,
+                      fontSize: isMobile ? 13 : 15,
                       fontWeight: 600,
                       color: openIndex === i ? "#1565C0" : "#0A1F44",
                       transition: "color 0.3s",
@@ -171,6 +172,7 @@ export function Faq() {
                     style={{
                       width: 28,
                       height: 28,
+                      minWidth: 28,
                       borderRadius: "50%",
                       background: openIndex === i ? "#1565C0" : "#EBF0FB",
                       display: "flex",
@@ -202,9 +204,9 @@ export function Faq() {
                 {openIndex === i && (
                   <div
                     style={{
-                      padding: "0 20px 18px",
+                      padding: isMobile ? "0 16px 14px" : "0 20px 18px",
                       fontFamily: "'Poppins', sans-serif",
-                      fontSize: 14,
+                      fontSize: isMobile ? 13 : 14,
                       color: "#64748B",
                       lineHeight: 1.7,
                       borderTop: "1px solid #EBF0FB",
@@ -221,13 +223,17 @@ export function Faq() {
         {/* Right — Image */}
         <div
           className={`transition-all duration-[800ms] ease-out ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            isVisible
+              ? "opacity-100 translate-x-0"
+              : isMobile
+              ? "opacity-0 translate-y-10"
+              : "opacity-0 translate-x-10"
           }`}
           style={{
             position: "relative",
             borderRadius: 20,
             overflow: "hidden",
-            height: 520,
+            height: isMobile ? 260 : 520,
             transitionDelay: "400ms",
           }}
         >
@@ -246,15 +252,15 @@ export function Faq() {
             href="/contact"
             style={{
               position: "absolute",
-              bottom: 24,
-              right: 24,
+              bottom: 16,
+              right: 16,
               background: "linear-gradient(135deg, #1565C0, #42A5F5)",
               color: "#fff",
-              padding: "14px 24px",
+              padding: isMobile ? "10px 16px" : "14px 24px",
               borderRadius: 50,
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 600,
-              fontSize: 14,
+              fontSize: isMobile ? 12 : 14,
               textDecoration: "none",
               display: "flex",
               alignItems: "center",

@@ -40,7 +40,7 @@ export default function WhatsappButton() {
       `}</style>
 
       <a
-        href="https://wa.me/9866274367"
+        href="https://wa.me/96629020"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float"

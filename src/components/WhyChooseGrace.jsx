@@ -27,6 +27,11 @@ const REASONS = [
     title: "End-to-End Support",
     desc: "From course selection to post-arrival assistance, we're with you every step of the journey.",
   },
+  {
+    icon: "star",
+    title: "Experienced Counsellors",
+    desc: "From course selection to post-arrival assistance, we're with you every step of the journey.",
+  },
 ];
 
 export function WhyChooseGrace() {
