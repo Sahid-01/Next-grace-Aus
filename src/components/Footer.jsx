@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ICONS } from "../components/Icon";
-import logoImg from "../assets/Grace-Logo.webp";
+// import logoImg from "../assets/Grace-Logo.webp";
 import GraceWhite from "../assets/GraceWhite.png"
 
 const NAV_LINKS = [
@@ -42,7 +42,7 @@ export function Footer() {
               <img
                 src={GraceWhite}
                 alt="Grace International Logo"
-                className="w-[90px] h-[90px] object-contain block ml-0"
+                className="w-[200px] h-[100px] object-contain block ml-0"
               />
             </div>
 
