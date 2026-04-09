@@ -1,4 +1,4 @@
-import { Universities } from "@/components/Universities";
+import { Universities } from "@/app/components/Universities";
 
 export default function UniversitiesPage() {
   return (

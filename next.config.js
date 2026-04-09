@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: false,
   // Allow all image sources (assets are served from public/)
   images: {
     unoptimized: true,

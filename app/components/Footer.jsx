@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ICONS } from "../components/Icon";
+import { ICONS } from "./Icon";
 
 const GraceWhite = "/assets/GraceWhite.png";
 

@@ -1,18 +1,18 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { CTA } from "@/components/CTA";
-import { Testimonials } from "@/components/Testimonials";
-import { Process } from "@/components/Process";
-import { Blog } from "@/components/Blog";
-import { Contact } from "@/components/Contact";
-import { Team } from "@/components/Team";
-import { WhyChooseGrace } from "@/components/WhyChooseGrace";
-import { Faq } from "@/components/Faq";
+import { Hero } from "@/app/components/Hero";
+import { Services } from "@/app/components/Services";
+import { CTA } from "@/app/components/CTA";
+import { Testimonials } from "@/app/components/Testimonials";
+import { Process } from "@/app/components/Process";
+import { Blog } from "@/app/components/Blog";
+import { Contact } from "@/app/components/Contact";
+import { Team } from "@/app/components/Team";
+import { WhyChooseGrace } from "@/app/components/WhyChooseGrace";
+import { Faq } from "@/app/components/Faq";
 
-const BranchMap = dynamic(() => import("@/components/BranchMap").then((mod) => mod.BranchMap), {
+const BranchMap = dynamic(() => import("@/app/components/BranchMap").then((mod) => mod.BranchMap), {
   ssr: false,
   loading: () => <div style={{ height: 400 }} />,
 });

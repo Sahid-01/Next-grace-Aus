@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FadeIn } from "../components/FadeIn";
+import { FadeIn } from "./FadeIn";
 
 export function CTA() {
   return (

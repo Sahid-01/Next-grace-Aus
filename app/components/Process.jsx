@@ -1,4 +1,4 @@
-import { FadeIn } from "../components/FadeIn";
+import { FadeIn } from "./FadeIn";
 
 const STEPS = [
   {
@@ -53,11 +53,10 @@ export function Process() {
             <FadeIn key={i} delay={i * 0.12}>
               <div className="text-center px-4">
                 <div
-                  className={`w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center font-poppins font-extrabold text-[22px] text-white transition-all duration-300 cursor-default hover:bg-gradient-to-br hover:from-brand-light hover:to-brand hover:scale-110 ${
-                    i === 0
+                  className={`w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center font-poppins font-extrabold text-[22px] text-white transition-all duration-300 cursor-default hover:bg-gradient-to-br hover:from-brand-light hover:to-brand hover:scale-110 ${i === 0
                       ? "bg-gradient-to-br from-brand-light to-brand border-none"
                       : "bg-white/[0.08] border-2 border-white/15"
-                  }`}
+                    }`}
                 >
                   {s.num}
                 </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FadeIn } from "../components/FadeIn";
-import { ICONS } from "../components/Icon";
+import { FadeIn } from "./FadeIn";
+import { ICONS } from "./Icon";
 
 export function Contact() {
   const [form, setForm] = useState({

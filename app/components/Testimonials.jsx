@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ICONS } from "../components/Icon";
+import { ICONS } from "./Icon";
 
 const TESTIMONIALS = [
   {
@@ -93,8 +93,8 @@ export function Testimonials() {
     visibleCount === 1
       ? "1fr"
       : visibleCount === 2
-      ? "repeat(2, 1fr)"
-      : "repeat(3, 1fr)";
+        ? "repeat(2, 1fr)"
+        : "repeat(3, 1fr)";
 
   return (
     <section
@@ -110,9 +110,8 @@ export function Testimonials() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
         <div
-          className={`transition-all duration-[800ms] ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-[800ms] ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
           style={{
             textAlign: "center",
             marginBottom: visibleCount === 1 ? 40 : 64,
@@ -162,11 +161,10 @@ export function Testimonials() {
             {visible.map((t, i) => (
               <div
                 key={currentIndex + i}
-                className={`transition-all duration-[600ms] ease-out ${
-                  isVisible
+                className={`transition-all duration-[600ms] ease-out ${isVisible
                     ? "opacity-100 translate-y-0 scale-100"
                     : "opacity-0 translate-y-10 scale-95"
-                }`}
+                  }`}
                 style={{
                   background: "#fff",
                   borderRadius: 20,
@@ -278,11 +276,10 @@ export function Testimonials() {
 
           {/* Navigation */}
           <div
-            className={`transition-all duration-[800ms] ease-out ${
-              isVisible
+            className={`transition-all duration-[800ms] ease-out ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
             style={{
               display: "flex",
               justifyContent: "center",

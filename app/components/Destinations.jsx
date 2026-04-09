@@ -1,4 +1,4 @@
-import { FadeIn } from "../components/FadeIn";
+import { FadeIn } from "./FadeIn";
 
 const DESTINATIONS = [
   { flag: "🇦🇺", name: "Australia", students: "12,000+", color: "#0057A8" },

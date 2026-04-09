@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FadeIn } from "../components/FadeIn";
-import { ICONS } from "../components/Icon";
+import { FadeIn } from "./FadeIn";
+import { ICONS } from "./Icon";
 
 const BLOGS = [
   {

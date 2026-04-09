@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ICONS } from "../components/Icon";
+import { ICONS } from "./Icon";
 
 const SERVICES = [
   {
@@ -99,9 +99,8 @@ export function Services() {
 
         {/* Heading */}
         <div
-          className={`transition-all duration-[800ms] ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-[800ms] ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
           style={{
             textAlign: "center",
             marginBottom: isMobile ? 36 : 64,
@@ -126,9 +125,8 @@ export function Services() {
 
         {/* Carousel */}
         <div
-          className={`transition-all duration-[800ms] ease-out ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
+          className={`transition-all duration-[800ms] ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
           style={{
             position: "relative",
             // Side padding to make room for prev/next arrows
