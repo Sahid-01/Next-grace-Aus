@@ -1,5 +1,5 @@
-import { Destinations } from "@/app/components/Destinations";
-import { CTA } from "@/app/components/CTA";
+import { Destinations } from "@/components/Destinations";
+import { CTA } from "@/components/CTA";
 
 export default function DestinationsPage() {
   return (

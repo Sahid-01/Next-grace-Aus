@@ -7,6 +7,11 @@ import { useState, useRef, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { BRANCHES as ALL_BRANCHES } from "@/data/branches";
+
+// Filter to only branches that have map coordinates
+const MAP_BRANCHES = ALL_BRANCHES.filter((b) => b.lat != null && b.lng != null);
+const DEFAULT_ID = MAP_BRANCHES.find((b) => b.primary)?.id || MAP_BRANCHES[0]?.id;
 
 // ── Fix default marker icons ───────────────────────────────────────────────
 delete L.Icon.Default.prototype._getIconUrl;
@@ -55,184 +60,14 @@ function FlyTo({ target }) {
   return null;
 }
 
-// ── Branch data ────────────────────────────────────────────────────────────
-const BRANCHES = [
-  {
-    id: 1,
-    name: "Adelaide Office",
-    city: "Adelaide",
-    address: "Suite 2, Level 1, 9A Hindley St., Adelaide, SA 5000, Australia",
-    phone: "+61 (08) 7225 7892",
-    hotline: null,
-    email: "adelaide@graceintlgroup.com",
-    lat: -34.9211,
-    lng: 138.587,
-    primary: false,
-  },
-  {
-    id: 2,
-    name: "Auckland Office",
-    city: "Auckland",
-    address: "Suite 202, 87-93 Queen Street, Dingwall Building, Auckland, New Zealand",
-    phone: "+64 95585152",
-    hotline: null,
-    email: "director.nz@graceintlgroup.com",
-    lat: -36.8485,
-    lng: 174.7633,
-    primary: false,
-  },
-  {
-    id: 3,
-    name: "Brisbane Office",
-    city: "Brisbane",
-    address: "Level 5, 190 Edward Street, Brisbane 4000, Australia",
-    phone: "+61 (08) 0732663358",
-    hotline: null,
-    email: "brisbane@graceintlgroup.com",
-    lat: -27.4698,
-    lng: 153.0251,
-    primary: false,
-  },
-  {
-    id: 4,
-    name: "Canberra Office",
-    city: "Canberra",
-    address: "Suite 1.04/ 17-21 University Avenue City ACT 2601, Australia",
-    phone: "+61 262 471 050",
-    hotline: null,
-    email: "canberra@graceintlgroup.com",
-    lat: -35.2809,
-    lng: 149.13,
-    primary: false,
-  },
-  {
-    id: 5,
-    name: "Dandenong Office",
-    city: "Dandenong",
-    address: "Level 10, 14 Mason Street, Dandenong, VIC 3175, Australia",
-    phone: "+61 (03) 70097653, +61 (0)431794684",
-    hotline: null,
-    email: "dandenong@graceintlgroup.com",
-    lat: -37.9847,
-    lng: 145.215,
-    primary: false,
-  },
-  {
-    id: 6,
-    name: "Darwin Office",
-    city: "Darwin",
-    address: "43 Cavenagh Street, Darwin, NT, 0800 Level 1, Australia",
-    phone: "+61 411 632 575",
-    hotline: null,
-    email: "darwin@graceintlgroup.com",
-    lat: -12.4634,
-    lng: 130.8456,
-    primary: false,
-  },
-  {
-    id: 7,
-    name: "Glenroy Office",
-    city: "Glenroy",
-    address: "Unit 3/1 Post Office Pl, Glenroy, VIC 3046, Australia",
-    phone: "+61 431 715 577",
-    hotline: null,
-    email: "glenroy@graceintlgroup.com",
-    lat: -37.7025,
-    lng: 144.9311,
-    primary: false,
-  },
-  {
-    id: 8,
-    name: "Haymarket Office",
-    city: "Haymarket",
-    address: "Suite 453, Level 5, 311-315 Castlereagh St, Haymarket NSW 2000, Australia",
-    phone: "+61 (02) 9286 3447",
-    hotline: null,
-    email: "central.aus@grace.edu.np",
-    lat: -33.8795,
-    lng: 151.2093,
-    primary: false,
-  },
-  {
-    id: 9,
-    name: "Hobart Office",
-    city: "Hobart",
-    address: "Suite 105, Level 1, 86 Murray Street, Hobart TAS 7000, Australia",
-    phone: "03 6289 6655",
-    hotline: null,
-    email: "tasmania@graceintlgroup.com",
-    lat: -42.8821,
-    lng: 147.3272,
-    primary: false,
-  },
-  {
-    id: 10,
-    name: "Melbourne Office",
-    city: "Melbourne",
-    address: "Level 14, 282 Collins Street, Melbourne, VIC 3000, Australia",
-    phone: "+61 (03) 9662 9020",
-    hotline: null,
-    email: "melbourne@graceintlgroup.com",
-    lat: -37.8162,
-    lng: 144.9631,
-    primary: false,
-  },
-  {
-    id: 11,
-    name: "Parramatta Office",
-    city: "Parramatta",
-    address: "109 Church Street, Parramatta, NSW 2150, Australia",
-    phone: "+61 (02) 9286 3447",
-    hotline: null,
-    email: "parramatta@grace.edu.np",
-    lat: -33.8151,
-    lng: 151.0011,
-    primary: false,
-  },
-  {
-    id: 12,
-    name: "Perth Office",
-    city: "Perth",
-    address: "383 Hay St, Perth WA 6000, Australia",
-    phone: "+61 (08) 93252445",
-    hotline: null,
-    email: "perth@graceintlgroup.com",
-    lat: -31.9505,
-    lng: 115.8605,
-    primary: false,
-  },
-  {
-    id: 13,
-    name: "Strathfield Office",
-    city: "Strathfield",
-    address: "Unit 1/14 Boulevarde, Strathfield NSW 2135, Australia",
-    phone: "+61 (02) 9286 3447",
-    hotline: null,
-    email: "strathfield@grace.edu.np",
-    lat: -33.8729,
-    lng: 151.0942,
-    primary: false,
-  },
-  {
-    id: 14,
-    name: "Sydney Office",
-    city: "Sydney",
-    address: "Suite 1508, Level 15, 97-99 Bathurst Street, Sydney, NSW 2000, Australia",
-    phone: "+61 (02) 9286 3447",
-    hotline: null,
-    email: "sydney@graceintlgroup.com",
-    lat: -33.8751,
-    lng: 151.2065,
-    primary: true,
-  },
-];
+
 
 export function BranchMap() {
-  const [activeId, setActiveId] = useState(14);
+  const [activeId, setActiveId] = useState(DEFAULT_ID);
   const [isMobile, setIsMobile] = useState(false);
   const [showMap, setShowMap] = useState(false); // mobile tab toggle
   const markerRefs = useRef({});
-  const activeBranch = BRANCHES.find((b) => b.id === activeId);
+  const activeBranch = MAP_BRANCHES.find((b) => b.id === activeId);
 
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -383,7 +218,7 @@ export function BranchMap() {
                 transitionDelay: "600ms",
               }}
             >
-              {BRANCHES.map((branch, index) => {
+              {MAP_BRANCHES.map((branch, index) => {
                 const isActive = branch.id === activeId;
                 return (
                   <div
@@ -523,7 +358,7 @@ export function BranchMap() {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 />
                 <FlyTo target={activeBranch} />
-                {BRANCHES.map((branch) => (
+                {MAP_BRANCHES.map((branch) => (
                   <Marker
                     key={branch.id}
                     position={[branch.lat, branch.lng]}
@@ -536,7 +371,7 @@ export function BranchMap() {
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                           <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1565C0", flexShrink: 0 }} />
                           <span style={{ fontWeight: 700, fontSize: 14, color: "#0A1F44" }}>
-                            {branch.name}
+                            {branch.office}
                           </span>
                           {branch.primary && (
                             <span style={{

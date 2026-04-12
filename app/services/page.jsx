@@ -1,5 +1,5 @@
-import { Services } from "@/app/components/Services";
-import { CTA } from "@/app/components/CTA";
+import { Services } from "@/components/Services";
+import { CTA } from "@/components/CTA";
 
 export default function ServicesPage() {
   return (

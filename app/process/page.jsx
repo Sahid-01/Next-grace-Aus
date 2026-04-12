@@ -1,5 +1,5 @@
-import { Process } from "@/app/components/Process";
-import { CTA } from "@/app/components/CTA";
+import { Process } from "@/components/Process";
+import { CTA } from "@/components/CTA";
 
 export default function ProcessPage() {
   return (

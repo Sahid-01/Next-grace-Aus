@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import { FadeIn } from "./FadeIn";
 import { ICONS } from "./Icon";
 
@@ -12,6 +13,9 @@ export function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
 
@@ -25,8 +29,46 @@ export function Contact() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  const handleSubmit = () => {
-    if (form.name && form.email) setSent(true);
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = "Full name is required.";
+    if (!form.email.trim()) {
+      errs.email = "Email address is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errs.email = "Please enter a valid email address.";
+    }
+    if (form.phone && !/^[+\d\s\-().]{7,20}$/.test(form.phone)) {
+      errs.phone = "Please enter a valid phone number.";
+    }
+    return errs;
+  };
+
+  const handleSubmit = async () => {
+    const errs = validate();
+    setErrors(errs);
+    setApiError("");
+    if (Object.keys(errs).length > 0) return;
+
+    setLoading(true);
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          user_name: form.name,
+          user_email: form.email,
+          user_phone: form.phone || "Not provided",
+          message: form.message || "No message provided.",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setApiError("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 1 col on mobile, 3 cols on tablet+
@@ -130,7 +172,6 @@ export function Contact() {
                   textAlign: "center",
                   transition: "all 0.3s ease",
                   cursor: "default",
-                  // On mobile, switch to a horizontal row layout
                   display: "flex",
                   flexDirection: isMobile ? "row" : "column",
                   alignItems: "center",
@@ -284,32 +325,51 @@ export function Contact() {
                   {[
                     { key: "name", placeholder: "Full Name", type: "text" },
                     { key: "email", placeholder: "Email Address", type: "email" },
-                    { key: "phone", placeholder: "Phone Number", type: "tel" },
+                    { key: "phone", placeholder: "Phone Number (optional)", type: "tel" },
                   ].map((f) => (
-                    <input
-                      key={f.key}
-                      type={f.type}
-                      placeholder={f.placeholder}
-                      value={form[f.key]}
-                      onChange={(e) =>
-                        setForm({ ...form, [f.key]: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: isMobile ? "12px 14px" : "13px 16px",
-                        borderRadius: 10,
-                        border: "1.5px solid #E2E8F0",
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 14,
-                        color: "#0A1F44",
-                        background: "#fff",
-                        outline: "none",
-                        transition: "border-color 0.2s",
-                        boxSizing: "border-box",
-                      }}
-                      onFocus={(e) => (e.target.style.borderColor = "#1565C0")}
-                      onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
-                    />
+                    <div key={f.key}>
+                      <input
+                        type={f.type}
+                        placeholder={f.placeholder}
+                        value={form[f.key]}
+                        onChange={(e) => {
+                          setForm({ ...form, [f.key]: e.target.value });
+                          if (errors[f.key]) setErrors({ ...errors, [f.key]: "" });
+                        }}
+                        style={{
+                          width: "100%",
+                          padding: isMobile ? "12px 14px" : "13px 16px",
+                          borderRadius: 10,
+                          border: `1.5px solid ${errors[f.key] ? "#DC2626" : "#E2E8F0"}`,
+                          fontFamily: "'Poppins', sans-serif",
+                          fontSize: 14,
+                          color: "#0A1F44",
+                          background: "#fff",
+                          outline: "none",
+                          transition: "border-color 0.2s",
+                          boxSizing: "border-box",
+                        }}
+                        onFocus={(e) =>
+                          (e.target.style.borderColor = errors[f.key] ? "#DC2626" : "#1565C0")
+                        }
+                        onBlur={(e) =>
+                          (e.target.style.borderColor = errors[f.key] ? "#DC2626" : "#E2E8F0")
+                        }
+                      />
+                      {errors[f.key] && (
+                        <span
+                          style={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: 12,
+                            color: "#DC2626",
+                            marginTop: 4,
+                            display: "block",
+                          }}
+                        >
+                          {errors[f.key]}
+                        </span>
+                      )}
+                    </div>
                   ))}
 
                   <textarea
@@ -337,13 +397,30 @@ export function Contact() {
                     onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
                   />
 
+                  {apiError && (
+                    <div
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 13,
+                        color: "#DC2626",
+                        background: "#FEF2F2",
+                        padding: "10px 14px",
+                        borderRadius: 8,
+                        border: "1px solid #FECACA",
+                      }}
+                    >
+                      {apiError}
+                    </div>
+                  )}
+
                   <button
                     onClick={handleSubmit}
+                    disabled={loading}
                     style={{
                       background: "linear-gradient(135deg, #1565C0, #42A5F5)",
                       color: "#fff",
                       border: "none",
-                      cursor: "pointer",
+                      cursor: loading ? "not-allowed" : "pointer",
                       padding: isMobile ? "13px 0" : "14px 0",
                       borderRadius: 10,
                       fontFamily: "'Poppins', sans-serif",
@@ -352,11 +429,14 @@ export function Contact() {
                       transition: "all 0.25s",
                       boxShadow: "0 4px 16px rgba(21,101,192,0.3)",
                       width: "100%",
+                      opacity: loading ? 0.7 : 1,
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-1px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 24px rgba(21,101,192,0.4)";
+                      if (!loading) {
+                        e.currentTarget.style.transform = "translateY(-1px)";
+                        e.currentTarget.style.boxShadow =
+                          "0 8px 24px rgba(21,101,192,0.4)";
+                      }
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
@@ -364,7 +444,7 @@ export function Contact() {
                         "0 4px 16px rgba(21,101,192,0.3)";
                     }}
                   >
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               )}

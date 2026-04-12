@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Navbar } from "@/app/components/Navbar";
-import { Footer } from "@/app/components/Footer";
-import WhatsappButton from "@/app/components/WhatsappButton";
-import ScrollToTop from "@/app/components/ScrollToTop";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import WhatsappButton from "@/components/WhatsappButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "Grace International Australia",

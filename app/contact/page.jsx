@@ -1,5 +1,5 @@
-import { Contact } from "@/app/components/Contact";
-import OurBranch from "@/app/components/OurBranch";
+import { Contact } from "@/components/Contact";
+import OurBranch from "@/components/OurBranch";
 
 export default function ContactPage() {
   return (
